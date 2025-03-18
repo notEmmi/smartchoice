@@ -1,0 +1,68 @@
+.background-container {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	background-color: #FCA8CC;
+	overflow: hidden;
+	z-index: -1;
+	border: 1px solid red; /* Debugging visibility */
+}
+
+.landscape {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 128px;
+	background-color: lightblue; /* Debugging visibility */
+	opacity: 0.7;
+	clip-path: polygon(
+		0% 100%,
+		0% 40%,
+		10% 50%,
+		20% 30%,
+		30% 60%,
+		40% 40%,
+		50% 70%,
+		60% 30%,
+		70% 50%,
+		80% 20%,
+		90% 40%,
+		100% 30%,
+		100% 100%
+	  );
+}
+
+.buildings-container {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+  }
+  
+  .building {
+	background-color: #ff8ab8;
+  }
+  
+  .star {
+	position: absolute;
+	background-color: white;
+  }
+  
+  .cloud {
+	position: absolute;
+	right: 40px;
+	top: 80px;
+	height: 80px;
+	width: 160px;
+	background-color: white;
+	opacity: 0.9;
+	border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+	clip-path: polygon(30% 20%, 50% 0%, 70% 10%, 90% 30%, 100% 60%, 80% 80%, 50% 90%, 20% 80%, 0% 60%, 10% 40%);
+  }
+

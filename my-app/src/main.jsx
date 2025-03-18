@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './main.css'
 import App from './App.jsx'
 
 /* createRoot is used to create a root to render your React application.
