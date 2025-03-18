@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './start.css';
 
-const StartPage = () => {
+const Start = () => {
+	const [isHovering, setIsHovering] = useState(false); // Added state for hover effect
+
 	return (
-		<div className='start-container'>
+		<div className='container'>
 			<div className="panel">
 				<h1 className="title">SmartChoice</h1>
 				<button
