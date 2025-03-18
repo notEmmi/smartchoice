@@ -21,14 +21,14 @@
 }
   
 .title {
-	font-size: 128px;
+	font-size: 96px;
 	font-weight: 900;
 	margin-bottom: 16px; /* Reduce the space below the title */
 }
 
 .start-button {
 	font-family: monospace;
-	font-size: 64px;
+	font-size: 32px;
 	color: #1a2e22;
 	background: none;
 	border: none;
