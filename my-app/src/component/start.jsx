@@ -21,4 +21,4 @@ const Start = () => {
 	);
 };
 
-export default StartPage;
+export default Start;
