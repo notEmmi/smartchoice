@@ -1,4 +1,5 @@
 import "./pixelatedBackground.css"
+import PixelBackground from '../assets/background.png';
 
 const PixelatedBackground = () => {
   // Generate random stars/pixels
@@ -16,26 +17,30 @@ const PixelatedBackground = () => {
     width: `${Math.random() * 30 + 20}px`,
   }))
 
+  // return (
+  //   <div className="background-container">
+  //     {/* Landscape at the bottom */}
+  //     <div className="landscape"></div>
+
+  //     {/* Stars scattered throughout */}
+  //     {stars.map((star) => (
+  //       <div
+  //         key={star.id}
+  //         className="star"
+  //         style={{
+  //           top: star.top,
+  //           left: star.left,
+  //           width: star.size,
+  //           height: star.size,
+  //         }}
+  //       />
+  //     ))}
+  //   </div>
+  // )
+
   return (
     <div className="background-container">
-      {/* Landscape at the bottom */}
-      <div className="landscape"></div>
-
-      {/* Stars scattered throughout */}
-      {stars.map((star) => (
-        <div
-          key={star.id}
-          className="star"
-          style={{
-            top: star.top,
-            left: star.left,
-            width: star.size,
-            height: star.size,
-          }}
-        />
-      ))}
-
-
+      <img src={ PixelBackground } alt="pixelated pink background" />
     </div>
   )
 }

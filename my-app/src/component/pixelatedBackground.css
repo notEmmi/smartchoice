@@ -8,9 +8,11 @@ body {
 	left: 10px;
 	right: 10px;
 	bottom: 10px;
-	background-color: #ffa6c9; /* Pink background */
 	overflow: hidden;
 	z-index: -1;
+	display: flex;
+	justify-content: center;
+
 }
   
 .landscape {
