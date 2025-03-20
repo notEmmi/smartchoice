@@ -4,41 +4,39 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  }
-  
+}
+
 .panel {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 288px;
-	width: 800px;
+	width: min(90%, 800px); /* Adjust panel width dynamically */
+	height: auto; /* Allow height to adjust dynamically */
 	border-radius: 8px;
 	background-color: #FEFEF4;
-	padding: 32px;
+	padding: 24px; /* Reduce padding for smaller screens */
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	z-index: 1;
 }
-  
+
 .title {
-	font-size: 96px;
+	font-size: clamp(36px, 10vw, 96px); /* Dynamically adjust font size */
 	font-weight: 900;
-	margin-bottom: 16px; /* Reduce the space below the title */
+	margin-bottom: 16px;
 }
 
 .start-button {
 	font-family: monospace;
-	font-size: 32px;
+	font-size: clamp(20px, 5vw, 32px); /* Dynamically adjust font size */
 	color: #1a2e22;
 	background: none;
 	border: none;
 	cursor: pointer;
 	transition: transform 0.3s ease;
-	margin-bottom: 48px; /* Add space below the button */
+	margin-bottom: 48px;
 }
-  
+
 .start-button.hovering {
 	transform: scale(1.05);
 }
-  
-  
