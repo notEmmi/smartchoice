@@ -1,10 +1,5 @@
-.container {
-	position: relative;
-	height: calc(100vh - 20px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+
+
 
 .panel {
 	display: flex;

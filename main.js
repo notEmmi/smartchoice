@@ -12,6 +12,8 @@ function createWindow() {
   });
 
   win.loadURL('http://localhost:5173'); // Change port if using Create React App
+  win.setMenu(null);
+
 }
 
 app.whenReady().then(() => {

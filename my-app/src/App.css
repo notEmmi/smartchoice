@@ -1,4 +1,14 @@
+:root {
+  --tea-rose-red: #FBC4C9ff;    /* primary background color */
+  --seashell: #FDEEE7ff;        /* secondary background color */
+  --eggplant: #60405Aff;        /* primary text color */
+  --pistachio: #A8D18Dff;       /* background contrast color */
+  --misty-rose: #FDE7E9ff;      /* highlight color */
+  --bakermiller-pink: #F292ADff;    /* accent highlight color */
+}
+
 .app {
-  color: #172B1B;
+  color: var(--eggplant);
+  background-color: var(--tea-rose-red);
   font-family: 'Source Serif Pro', serif;
 }
