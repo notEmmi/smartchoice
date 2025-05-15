@@ -1,14 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
 :root {
   --tea-rose-red: #FBC4C9ff;    /* primary background color */
   --seashell: #FDEEE7ff;        /* secondary background color */
   --eggplant: #60405Aff;        /* primary text color */
+  --dark-eggplant: #3d2236ff;  /* dark eggplant color */
   --pistachio: #A8D18Dff;       /* background contrast color */
   --misty-rose: #FDE7E9ff;      /* highlight color */
   --bakermiller-pink: #F292ADff;    /* accent highlight color */
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Piazzolla', serif;
+  font-size: 128px;
+}
+
+
+h2 {
+  font-family: 'Piazzolla', serif;
+  font-size: 96px;
+}
+
+h3 {
+  font-family: 'Alata', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: 'Piazzolla', serif;
+  font-size: 30px;
+}
+
+p {
+  font-family: 'Alata', sans-serif;
+  font-size: 36px;
+}
+
 .app {
   color: var(--eggplant);
-  background-color: var(--tea-rose-red);
-  font-family: 'Source Serif Pro', serif;
+  background-color: var(--tea-rose-red); /* Full-screen background */
+  font-weight: 400;
+  word-break: break-all;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Prevent overflow issues */
 }
