@@ -1,0 +1,65 @@
+.background {
+
+  border: solid 10px var(--eggplant);
+  background-color: var(--seashell);
+  width: calc(100% - 150px); /* 75px left + 75px right */
+  height: calc(100% - 150px); /* 75px top + 75px bottom */
+  margin: 60px auto 90px auto; /* top right bottom left */
+
+  box-shadow: 10px 10px 0px var(--dark-eggplant);
+
+  z-index: 10;
+}
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 4px var(--eggplant);
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  /* Optional: Prevent text from wrapping out of nav */
+  white-space: nowrap;
+}
+
+.left-nav,
+.mid-nav,
+.right-nav {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* Remove vertical padding if any */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.left-nav {
+  border-right: solid 4px var(--eggplant);
+  background-color: var(--pistachio);
+  padding-left: 20px;
+  justify-content: flex-start;
+}
+
+.mid-nav {
+  background-color: var(--bakermiller-pink);
+  justify-content: center;
+  text-align: center;
+}
+
+.right-nav {
+  border-left: solid 4px var(--eggplant);
+  background-color: var(--pistachio);
+  padding-right: 20px;
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.nav-logo {
+  height: 32px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-right: 10px;
+}
