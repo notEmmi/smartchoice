@@ -1,0 +1,15 @@
+.start-button {
+  border: none;
+  background: none;
+  font-family: 'Alata', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  color: var(--eggplant);
+}
+
+.start-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
