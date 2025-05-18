@@ -1,0 +1,18 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Electron build artifacts
+*.asar
+/build/
+out/
+dist/
+temp/
+
+# Logs & cache
+*.log
+.cache/
+.DS_Store
+
+# Environment files
+.env
