@@ -55,6 +55,11 @@ p.tagline {
   font-style: italic;
 }
 
+p.home-icon {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 28px;
+}
+
 
 .app {
   color: var(--eggplant);
