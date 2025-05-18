@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Inter:wght@400;600&family=Alata&display=swap');
 :root {
   --tea-rose-red: #FBC4C9ff;    /* primary background color */
   --seashell: #FDEEE7ff;        /* secondary background color */
@@ -18,31 +16,45 @@ html, body {
 }
 
 h1 {
-  font-family: 'Piazzolla', serif;
-  font-size: 128px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 68px;
+  line-height: 1.2;
+  margin-bottom: 10px;
 }
-
 
 h2 {
-  font-family: 'Piazzolla', serif;
-  font-size: 96px;
+  font-family: 'Luckiest Guy', sans-serif;
+  font-size: 38px;
+  line-height: 1.3;
+  font-weight: 400;
 }
+
 
 h3 {
-  font-family: 'Alata', sans-serif;
-  font-size: 48px;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
   text-transform: uppercase;
-}
-
-h4 {
-  font-family: 'Piazzolla', serif;
-  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 p {
-  font-family: 'Alata', sans-serif;
-  font-size: 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
+
+p.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: var(--dark-eggplant);
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
 
 .app {
   color: var(--eggplant);
