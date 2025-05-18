@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import './start.css';
+import '../css/start.css';
+import logo from '../assets/logo.png'
 
 const Start = () => {
 	const [isHovering, setIsHovering] = useState(false); // Added state for hover effect
 
 	return (
-		<div className='container'>
-			<div className="panel">
-				<h1 className="title">SmartChoice</h1>
+		<div className='start-container'>
+				<img src={logo} className='hero-logo' alt="SmartChoice Logo" />
+
+				<h1>SmartChoice</h1>
+				<p className='tagline'>Decide Less. Get Answers Faster.</p>
+				{/* <p>Find the perfect activity based on your mood with just a few clicks.</p> */}
 				<button
-					className={`start-button ${isHovering ? "hovering" : ""}`}
-					onMouseEnter={() => setIsHovering(true)}
-					onMouseLeave={() => setIsHovering(false)}
+					className='start-button'
 					onClick={() => alert("Starting SmartChoice!")}
-					>
+					aria-label="Start SmartChoice"
+				>
 					CLICK TO START
 				</button>
-			</div>
+
 		</div>
+
 	);
 };
 

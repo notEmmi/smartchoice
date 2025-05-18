@@ -3,8 +3,8 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1440,
+    height: 1024,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Optional for security
       nodeIntegration: true, // Enable Node.js features in renderer
@@ -12,6 +12,8 @@ function createWindow() {
   });
 
   win.loadURL('http://localhost:5173'); // Change port if using Create React App
+  win.setMenu(null);
+
 }
 
 app.whenReady().then(() => {

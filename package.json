@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "npm run dev --prefix my-app",  
+    "start": "npm run dev --prefix my-app",
     "electron": "electron ."
   },
   "dependencies": {
+    "lucide": "^0.510.0",
+    "lucide-react": "^0.510.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

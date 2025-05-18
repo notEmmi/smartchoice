@@ -4,26 +4,21 @@ import './App.css'
 
 /* Import Routes */
 import Start from "./component/start.jsx";
-import PixelatedBackground from './component/pixelatedBackground.jsx'; // Renamed to start with uppercase
-// import Categories from './component/categories.jsx';
+import Background from "./component/background.jsx"
 
 function App() {
   return (
     <Router>
-      <div className='behind'></div>
       <div className="app">
-        <div className="app__background">
-          <PixelatedBackground />
-        </div>
-        <div className="app__body">
-          <Routes>
-            <Route path="/" element={<Start />} />
-            {/* <Route path="/categories" element={Categories} /> */}
-          </Routes>
-        </div>
+          <Background>
+            <Routes>
+              <Route path="/" element={<Start />} />
+              {/* <Route path="/categories" element={Categories} /> */}
+            </Routes>
+          </Background>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App
