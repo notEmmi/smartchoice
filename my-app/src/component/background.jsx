@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/background.css';
 import logo from '../assets/logo.png';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Square, Minus } from 'lucide-react';
 
 const Background = ({ children }) => {
 	return (
@@ -17,6 +17,8 @@ const Background = ({ children }) => {
 					</div>
 				</div>
 				<div className='right-nav'>
+					<Minus className='nav-icon minus-icon'/>
+					<Square className='nav-icon square-icon'/>
 					<X className='nav-icon close-icon'/>
 				</div>
 

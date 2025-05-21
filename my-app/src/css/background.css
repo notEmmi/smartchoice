@@ -64,6 +64,7 @@
   padding-right: 20px;
   justify-content: flex-end;
   text-align: end;
+  gap: 24px; /* add spacing between icons */
 }
 
 .nav-logo {
@@ -88,10 +89,15 @@
   gap: 8px; /* space between logo and text */
 }
 
-.menu-icon, .close-icon {
+.menu-icon, .close-icon, .minus-icon, .square-icon {
   stroke-width: 3;
   height: 32px;
   width: 32px;
+}
+
+.square-icon {
+  height: 26px;
+  width: 26px;
 }
 
 .nav-icon:hover {

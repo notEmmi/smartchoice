@@ -5,9 +5,11 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1440,
     height: 1024,
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Optional for security
       nodeIntegration: true, // Enable Node.js features in renderer
+      contextIsolation: false
     },
   });
 
