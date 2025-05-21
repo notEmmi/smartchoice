@@ -9,7 +9,7 @@ const Start = () => {
 				<img src={logo} className='hero-logo' alt="SmartChoice Logo" />
 
 				<h1>SmartChoice</h1>
-				<p className='tagline'>Decide Less. Get Answers Faster.</p>
+				<p className='tagline'>Decide Less. Do more.</p>
 				{/* <p>Find the perfect activity based on your mood with just a few clicks.</p> */}
 				<button
 					className='start-button'
