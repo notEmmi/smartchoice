@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/start.css';
 import logo from '../assets/logo.png'
 
 const Start = () => {
+	const navigate = useNavigate();
 
 	return (
 		<div className='start-container'>
@@ -13,7 +15,7 @@ const Start = () => {
 				{/* <p>Find the perfect activity based on your mood with just a few clicks.</p> */}
 				<button
 					className='start-button'
-					onClick={() => alert("Starting SmartChoice!")}
+					onClick={() => navigate('/styleguide')}
 					aria-label="Start SmartChoice"
 				>
 					CLICK TO START
