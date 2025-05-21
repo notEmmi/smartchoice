@@ -76,8 +76,8 @@
 
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .home-icon {
@@ -100,3 +100,10 @@
   color: var(--dark-eggplant);
 }
 
+.scrollable-content {
+  overflow-y: auto;
+  max-height: 78vh;
+  /* Custom scrollbar styles for Webkit browsers */
+  scrollbar-width: auto; /* Firefox */
+  scrollbar-color: var(--eggplant) var(--seashell); /* Firefox */
+}
