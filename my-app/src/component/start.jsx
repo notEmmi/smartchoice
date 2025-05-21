@@ -3,7 +3,6 @@ import '../css/start.css';
 import logo from '../assets/logo.png'
 
 const Start = () => {
-	const [isHovering, setIsHovering] = useState(false); // Added state for hover effect
 
 	return (
 		<div className='start-container'>
