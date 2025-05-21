@@ -21,9 +21,12 @@ const Background = ({ children }) => {
 				</div>
 
 			</div>
-			<div className='content'>
-				{children}
+			<div className='scrollable-content'>
+				<div className='content'>
+					{children}
+				</div>
 			</div>
+
 		</div>
 	);
 };
