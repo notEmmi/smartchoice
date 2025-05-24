@@ -183,21 +183,7 @@ const StyleGuide = () => {
 				</Subsection>
 				<Subsection title="Forms & Inputs">
 					<p>Showcase input fields, checkboxes, dropdowns, and validation styles.</p>
-					<form aria-label="Sample form">
-						<label htmlFor="name-input">Name</label>
-						<input id="name-input" type="text" name="name" aria-required="true" />
-						<label htmlFor="mood-select">Mood</label>
-						<select id="mood-select" name="mood" aria-required="true">
-							<option value="">Select mood</option>
-							<option value="happy">Happy</option>
-							<option value="sad">Sad</option>
-							<option value="excited">Excited</option>
-						</select>
-						<div>
-							<input id="agree" type="checkbox" name="agree" aria-required="true" />
-							<label htmlFor="agree">I agree to the terms</label>
-						</div>
-					</form>
+
 				</Subsection>
 				<Subsection title="Cards / Modals / Lists (Optional)">
 					<p>Any additional UI blocks used in your app.</p>
@@ -206,7 +192,6 @@ const StyleGuide = () => {
 
 			<Section title="Layout & Spacing">
 				<Subsection>
-					<p>Describe grid system, padding/margins, alignment rules, and responsive behavior.</p>
 					<h3>Page Background & Content Area</h3>
 					<p>
 						Each page is wrapped in a <code>Background</code> component that visually resembles a browser window. The background has even margins on all sides to separate it from the app window, creating a "window within a window" effect.
