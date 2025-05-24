@@ -5,17 +5,16 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1440,
     height: 1024,
-    frame: false,
+    frame: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional for security
-      nodeIntegration: true, // Enable Node.js features in renderer
-      contextIsolation: false
+      preload: path.join(__dirname, 'preload.js'), // ✅ Make sure this path is correct
+      contextIsolation: true,  // ✅ REQUIRED for contextBridge to work
+      nodeIntegration: false,  // ✅ MUST be false
     },
   });
 
-  win.loadURL('http://localhost:5173'); // Change port if using Create React App
+  win.loadURL('http://localhost:5173'); // or your React dev server
   win.setMenu(null);
-
 }
 
 app.whenReady().then(() => {
