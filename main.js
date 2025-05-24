@@ -14,6 +14,8 @@ function createWindow() {
   });
 
   win.loadURL('http://localhost:5173'); // or your React dev server
+  win.webContents.openDevTools();
+
   win.setMenu(null);
 }
 
