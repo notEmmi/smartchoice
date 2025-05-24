@@ -5,6 +5,7 @@ import './App.css'
 /* Import Routes */
 import Start from "./component/start.jsx";
 import Background from "./component/background.jsx"
+import StyleGuide from "./component/styleGuide.jsx"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Start />} />
               {/* <Route path="/categories" element={Categories} /> */}
+              <Route path="/styleguide" element={<StyleGuide />} />
             </Routes>
           </Background>
       </div>

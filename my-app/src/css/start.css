@@ -23,6 +23,7 @@
   flex-direction: column;
   padding: 100px;
   align-items: center;
+  width: 100%;
 }
 
 .hero-logo {
