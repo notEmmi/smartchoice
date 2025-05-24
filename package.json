@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "npm run dev --prefix my-app",
+    "start": "concurrently \"npm run dev --prefix my-app\" \"wait-on http://localhost:5173 && npm run electron\"",
     "electron": "electron ."
   },
   "dependencies": {
@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
-    "electron": "^35.0.1"
+    "concurrently": "^9.1.2",
+    "electron": "^35.0.1",
+    "wait-on": "^8.0.3"
   }
 }

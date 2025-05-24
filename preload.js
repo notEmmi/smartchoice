@@ -1,26 +1,24 @@
-const { app, BrowserWindow } = require('electron');
+const { contextBridge } = require('electron');
+const Store = require('electron-store');
+const fs = require('fs');
 const path = require('path');
 
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional for security
-      nodeIntegration: true, // Enable Node.js features in renderer
-    },
-  });
+const store = new Store();
 
-  win.loadURL('http://localhost:5173'); // Change port if using Create React App
+if (!store.has('categories')) {
+  try {
+    const defaultData = JSON.parse(
+      fs.readFileSync(path.join(__dirname, 'default-data.json'), 'utf-8')
+    );
+    store.set('categories', defaultData);
+  } catch (err) {
+    console.error('Failed to load default categories:', err);
+  }
 }
 
-app.whenReady().then(() => {
-  createWindow();
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
+contextBridge.exposeInMainWorld('electronAPI', {
+  test: () => console.log('✅ preload is working'),
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  getCategories: () => store.get('categories'),
+  setCategories: (categories) => store.set('categories', categories),
 });
