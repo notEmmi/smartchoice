@@ -1,0 +1,17 @@
+.home-container {
+	width: 100%;
+}
+.mood-form {
+
+	text-align: center;
+	background-color: var(--misty-rose);
+	border-radius: 8px;
+	padding: 2%;
+}
+
+.mood-buttons, .current-moods {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	flex-wrap: wrap;
+}

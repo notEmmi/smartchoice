@@ -1,0 +1,49 @@
+
+
+.start-button {
+  border: none;
+  background: none;
+  color: var(--eggplant);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.start-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: var(--dark-eggplant);
+}
+
+
+.mood-button {
+  background-color: var(--pistachio);
+  border-radius: 20px;
+  color: var(--eggplant);
+  padding: 0.5em 1.5em;
+  font-size: 1.1em;
+  font-family: inherit;
+  border: none;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  display: inline-block; /* Add this to prevent full width */
+  /* min-width is set inline from JS for all buttons */
+}
+
+.current-mood-button {
+  background-color: var(--bakermiller-pink);
+  border-radius: 20px;
+  color: var(--eggplant);
+  padding: 0.5em 1.5em;
+  font-size: 1.1em;
+  font-family: inherit;
+  border: none;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  display: inline-block; /* Add this to prevent full width */
+  /* min-width is set inline from JS for all buttons */
+}

@@ -33,6 +33,18 @@ ipcMain.handle('set-categories', (event, categories) => {
   return true;
 });
 
+ipcMain.handle('get-moods', () => {
+  return readData().moods || [];
+});
+
+ipcMain.handle('set-moods', (event, moods) => {
+  const currentData = readData();
+  currentData.moods = moods;
+  writeData(currentData);
+  return true;
+});
+
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1440,

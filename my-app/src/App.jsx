@@ -10,18 +10,24 @@ import Home from "./component/home.jsx"
 
 const App = () => {
   const [categories, setCategories] = useState([])
+  const [moods, setMoods] = useState([])
 
   useEffect(() => {
-    async function fetchCategories() {
+    async function fetchData() {
       try {
-        const categories = await window.electronAPI.getCategories();
-        setCategories(categories || []);
-        console.log("Successfully loaded categories:", categories);
-      } catch (err) {
-        console.log("Failed to get categories:", err);
+        const cats = await window.electronAPI.getCategories();
+        const mds = await window.electronAPI.getMoods();
+        setCategories(cats || []);
+        setMoods(mds || []);
+        console.log("Loaded categories:", cats);
+        console.log("Loaded moods:", mds);
+      } catch (e) {
+        console.error("Failed to load data", e);
+        setCategories([]);
+        setMoods([]);
       }
     }
-    fetchCategories();
+    fetchData();
   }, []);
 
   return (
@@ -30,7 +36,7 @@ const App = () => {
           <Background>
             <Routes>
               <Route path="/" element={<Start />} />
-              <Route path="/home" element={<Home categories={categories} />} />
+              <Route path="/home" element={<Home categories={categories} moods={moods} />} />
               <Route path="/styleguide" element={<StyleGuide />} />
             </Routes>
           </Background>
