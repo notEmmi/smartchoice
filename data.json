@@ -1,0 +1,11 @@
+{
+  "categories": [
+    {
+      "name": "Productivity",
+      "options": [
+        { "label": "Study", "weight": 5, "moods": ["focused"] },
+        { "label": "Read", "weight": 5, "moods": ["calm"] }
+      ]
+    }
+  ]
+}

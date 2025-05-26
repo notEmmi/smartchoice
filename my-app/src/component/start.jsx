@@ -21,6 +21,14 @@ const Start = () => {
 					CLICK TO START
 				</button>
 
+								<button
+					className='start-button'
+					onClick={() => navigate('/styleguide')}
+					aria-label="Start SmartChoice"
+				>
+					STYLE GUIDE
+				</button>
+
 		</div>
 
 	);

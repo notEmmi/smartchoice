@@ -1,5 +1,37 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const fs = require('fs');
 const path = require('path');
+
+const dataFilePath = path.join(__dirname, 'data.json');
+
+function readData() {
+  try {
+    const raw = fs.readFileSync(dataFilePath, 'utf-8');
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error("Error reading data file:", err);
+    return {};
+  }
+}
+
+function writeData(data) {
+  try {
+    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (err) {
+    console.error("Error writing data file:", err);
+  }
+}
+
+ipcMain.handle('get-categories', () => {
+  return readData().categories || [];
+});
+
+ipcMain.handle('set-categories', (event, categories) => {
+  const currentData = readData();
+  currentData.categories = categories;
+  writeData(currentData);
+  return true;
+});
 
 function createWindow() {
   const win = new BrowserWindow({

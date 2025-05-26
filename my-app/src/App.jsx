@@ -12,25 +12,16 @@ const App = () => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    console.log("window.electronAPI", window.electronAPI);
-    try {
-      const cats = window.electronAPI?.getCategories();
-      console.log("cats", cats);
-    } catch (e) {
-      console.error("Failed to load categories:", e);
+    async function fetchCategories() {
+      try {
+        const categories = await window.electronAPI.getCategories();
+        setCategories(categories || []);
+        console.log("Successfully loaded categories:", categories);
+      } catch (err) {
+        console.log("Failed to get categories:", err);
+      }
     }
-  }, []);
-
-  
-  useEffect(() => {
-    try {
-      const categories = window.electronAPI.getCategories();
-      setCategories(categories || []);
-      console.log("Successfully loaded categories:", categories);
-    } catch (err) {
-      console.log("Failed to get default categories.");
-    }
-
+    fetchCategories();
   }, []);
 
   return (
