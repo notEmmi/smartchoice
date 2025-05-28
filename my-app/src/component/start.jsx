@@ -16,7 +16,6 @@ const Start = () => {
 			{/* <p>Find the perfect activity based on your mood with just a few clicks.</p> */}
 			<StartButton
 				onClick={() => navigate('/home')}
-				aria-label="Start SmartChoice"
 			>
 				CLICK TO START
 			</StartButton>
@@ -24,7 +23,6 @@ const Start = () => {
 			<StartButton
 				className='start-button'
 				onClick={() => navigate('/styleguide')}
-				aria-label="Go to Style Guide"
 			>
 				STYLE GUIDE
 			</StartButton>
