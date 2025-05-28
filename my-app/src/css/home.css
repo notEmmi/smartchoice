@@ -15,3 +15,8 @@
 	gap: 24px;
 	flex-wrap: wrap;
 }
+
+.current-moods {
+	align-items: center;
+	margin-bottom: 24px;
+}
