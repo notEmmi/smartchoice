@@ -2,6 +2,86 @@ import React, { useState } from "react";
 import "../css/home.css"
 import { MoodButton, CurrentMoodButton } from "./buttons";
 
+function recommendActivities(categories, selectedMoods) {
+  const results = [];
+
+  for (const category of categories) {
+    for (const activity of category.options) {
+      let score = 0;
+
+      if (selectedMoods.length > 0) {
+        const moodMatches = activity.moods.filter(mood => selectedMoods.includes(mood)).length;
+        score = moodMatches * activity.weight;
+      } else {
+        // If no moods selected, score by weight only
+        score = activity.weight;
+      }
+
+      results.push({
+        label: activity.label,
+        category: category.name,
+        score
+      });
+    }
+  }
+
+  return results.sort((a, b) => b.score - a.score);
+}
+
+// Current moods section
+const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
+	currentMoods.length > 0 && (
+		<div className="current-moods">
+			{currentMoods.map((mood, idx) => (
+				<CurrentMoodButton
+					key={idx}
+					mood={mood}
+					onRemove={() => onRemove(mood)}
+				/>
+			))}
+		</div>
+	)
+);
+
+// Mood buttons section
+const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
+	<div className="mood-buttons">
+		{moods && moods
+			.filter(mood => !currentMoods.includes(mood))
+			.map((mood, idx) => (
+				<MoodButton
+					type="button"
+					key={idx}
+					onClick={() => onAdd(mood)}
+				>
+					{mood}
+				</MoodButton>
+			))}
+	</div>
+);
+
+// Categories section
+const CategoriesSection = ({ categories }) => (
+	<ul>
+		{categories && categories.map((category, idx) => (
+			<li key={idx}>
+				<strong>{category.name}</strong>
+				{category.options && (
+					<ul>
+						{category.options.map((opt, i) => (
+							<li key={i}>
+								<button type="button">
+									{opt.label} (Weight: {opt.weight}, Moods: {opt.moods.join(', ')})
+								</button>
+							</li>
+						))}
+					</ul>
+				)}
+			</li>
+		))}
+	</ul>
+);
+
 const Home = ({ categories, moods }) => {
 	const [currentMoods, setCurrentMoods] = useState([])
 
@@ -21,48 +101,11 @@ const Home = ({ categories, moods }) => {
 		<div className="home-container">
 			<h1>SmartChoice</h1>
 			<div className="mood-form">
-				<h2> How are you feeling today ?</h2>
-				<div className="current-moods">
-					{currentMoods.map((mood, idx) => (
-						<CurrentMoodButton
-							key={idx}
-							mood={mood}
-							onRemove={() => handleRemoveMood(mood)}
-						/>
-					))}
-				</div>
-				<div className="mood-buttons">
-					{moods && moods
-						.filter(mood => !currentMoods.includes(mood))
-						.map((mood, idx) => (
-							<MoodButton
-								type="button"
-								key={idx}
-								onClick={() => handleMoodClick(mood)}
-							>
-								{mood}
-							</MoodButton>
-						))}
-				</div>
+				<h2> How are you feeling  ?</h2>
+				<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
+				<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
 			</div>
-			<ul>
-				{categories && categories.map((category, idx) => (
-					<li key={idx}>
-						<strong>{category.name}</strong>
-						{category.options && (
-							<ul>
-								{category.options.map((opt, i) => (
-									<li key={i}>
-										<button type="button">
-											{opt.label} (Weight: {opt.weight}, Moods: {opt.moods.join(', ')})
-										</button>
-									</li>
-								))}
-							</ul>
-						)}
-					</li>
-				))}
-			</ul>
+			<CategoriesSection categories={categories} />
 		</div>
 	)
 };
