@@ -1,12 +1,19 @@
+/* div {
+	border: 1px solid red;
+} */
+
 .home-container {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
+	gap: 24px;
 }
 .mood-form {
 
 	text-align: center;
 	background-color: var(--misty-rose);
-	border-radius: 8px;
 	padding: 2%;
+	border: solid 1px var(--eggplant);
 }
 
 .mood-buttons, .current-moods {
@@ -19,4 +26,10 @@
 .current-moods {
 	align-items: center;
 	margin-bottom: 24px;
+}
+
+.categories {
+	display: flex;
+	gap: 24px;
+	flex: 1 1 0;
 }

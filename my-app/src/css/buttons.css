@@ -21,7 +21,7 @@
 .mood-button, 
 .current-mood-button {
   background-color: var(--pistachio);
-  border-radius: 20px;
+  border-radius: 8px;
   color: var(--eggplant);
   padding: 0.5em 1.5em;
   font-size: 1.1em;

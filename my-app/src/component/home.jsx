@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/home.css"
 import { MoodButton, CurrentMoodButton } from "./buttons";
+import DefaultImage from "../assets/logo.png"
 
 function recommendActivities(categories, selectedMoods) {
   const results = [];
@@ -62,28 +63,19 @@ const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
 
 // Categories section
 const CategoriesSection = ({ categories }) => (
-	<ul>
+	<div className="categories">
 		{categories && categories.map((category, idx) => (
-			<li key={idx}>
-				<strong>{category.name}</strong>
-				{category.options && (
-					<ul>
-						{category.options.map((opt, i) => (
-							<li key={i}>
-								<button type="button">
-									{opt.label} (Weight: {opt.weight}, Moods: {opt.moods.join(', ')})
-								</button>
-							</li>
-						))}
-					</ul>
-				)}
-			</li>
+			<div className="category" key={idx}>
+				<img src={ DefaultImage } className="category-image" alt="Category" />
+				<h3><strong>{category.name}</strong></h3>
+			</div>
 		))}
-	</ul>
+	</div>
 );
 
 const Home = ({ categories, moods }) => {
 	const [currentMoods, setCurrentMoods] = useState([])
+
 
 	// Handler to add mood if not already selected
 	const handleMoodClick = (mood) => {
