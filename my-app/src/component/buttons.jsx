@@ -54,4 +54,12 @@ export const StartButton = ({ onClick, children }) => (
 	</Button>
 );
 
+export function PersonalizedRecButton(props) {
+	return (
+		<button className="personalized-recc-button" type="button" {...props}>
+			Get Personalized Recommendations
+		</button>
+	);
+}
+
 export default Button;

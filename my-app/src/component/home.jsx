@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/home.css"
-import { MoodButton, CurrentMoodButton } from "./buttons";
+import { MoodButton, CurrentMoodButton, PersonalizedRecButton } from "./buttons";
 import DefaultImage from "../assets/logo.png"
 
 function recommendActivities(categories, selectedMoods) {
@@ -32,33 +32,39 @@ function recommendActivities(categories, selectedMoods) {
 // Current moods section
 const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
 	currentMoods.length > 0 && (
-		<div className="current-moods">
-			{currentMoods.map((mood, idx) => (
-				<CurrentMoodButton
-					key={idx}
-					mood={mood}
-					onRemove={() => onRemove(mood)}
-				/>
-			))}
-		</div>
+		<>
+			<h3>Selected Moods</h3>
+			<div className="current-moods">
+				{currentMoods.map((mood, idx) => (
+					<CurrentMoodButton
+						key={idx}
+						mood={mood}
+						onRemove={() => onRemove(mood)}
+					/>
+				))}
+			</div>
+		</>
 	)
 );
 
 // Mood buttons section
 const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
-	<div className="mood-buttons">
-		{moods && moods
-			.filter(mood => !currentMoods.includes(mood))
-			.map((mood, idx) => (
-				<MoodButton
-					type="button"
-					key={idx}
-					onClick={() => onAdd(mood)}
-				>
-					{mood}
-				</MoodButton>
-			))}
-	</div>
+	<>
+		<h3>Available Moods</h3>
+		<div className="mood-buttons">
+			{moods && moods
+				.filter(mood => !currentMoods.includes(mood))
+				.map((mood, idx) => (
+					<MoodButton
+						type="button"
+						key={idx}
+						onClick={() => onAdd(mood)}
+					>
+						{mood}
+					</MoodButton>
+				))}
+		</div>
+	</>
 );
 
 // Categories section
@@ -67,7 +73,7 @@ const CategoriesSection = ({ categories }) => (
 		{categories && categories.map((category, idx) => (
 			<div className="category" key={idx}>
 				<img src={ DefaultImage } className="category-image" alt="Category" />
-				<h3><strong>{category.name}</strong></h3>
+				<p><strong>{category.name}</strong></p>
 			</div>
 		))}
 	</div>
@@ -89,6 +95,10 @@ const Home = ({ categories, moods }) => {
 		setCurrentMoods((prev) => prev.filter(m => m !== mood));
 	};
 
+	const handleReccomendations = (currentMoods) => {
+
+	}
+
 	return (
 		<div className="home-container">
 			<h1>SmartChoice</h1>
@@ -96,6 +106,7 @@ const Home = ({ categories, moods }) => {
 				<h2> How are you feeling  ?</h2>
 				<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
 				<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
+				<PersonalizedRecButton />
 			</div>
 			<CategoriesSection categories={categories} />
 		</div>

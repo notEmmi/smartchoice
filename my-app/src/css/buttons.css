@@ -1,3 +1,7 @@
+button:hover {
+  cursor:pointer;
+}
+
 .start-button {
   border: none;
   background: none;
@@ -38,6 +42,10 @@
   padding-right: 0.8em;
 }
 
+.current-mood-button:hover {
+  cursor: default;
+}
+
 .mood {
   background-color: var(--pistachio);
 }
@@ -64,4 +72,40 @@
   transform: scale(1.2);
 
   outline: none;
+}
+
+.personalized-recc-button {
+  background: var(--tea-rose-red);
+  color: var(--eggplant);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75em 2em;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px 0px var(--bakermiller-pink), 0 0 12px 2px rgba(255, 99, 132, 0.12);
+  outline: 2px solid transparent;
+  transition:
+    box-shadow 0.2s,
+    outline-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.personalized-recc-button:focus,
+.personalized-recc-button:hover {
+  outline: 2px solid var(--tea-rose-red);
+  box-shadow: 0 0 0 4px rgba(255, 99, 132, 0.18), 0 0 24px 6px rgba(255, 99, 132, 0.18);
+  background: linear-gradient(90deg, var(--tea-rose-red) 80%, #fff0f5 100%);
+  color: var(--eggplant);
+  transform: scale(1.04);
 }
