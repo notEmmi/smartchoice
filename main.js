@@ -47,7 +47,7 @@ ipcMain.handle('set-moods', (event, moods) => {
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1440,
+    width: 1024,
     height: 1024,
     frame: true,
     webPreferences: {

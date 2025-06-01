@@ -102,11 +102,17 @@ const Home = ({ categories, moods }) => {
 	return (
 		<div className="home-container">
 			<h1>SmartChoice</h1>
+			<p className="tagline">Discover activities tailored to your current mood and preferences</p>
 			<div className="mood-form">
-				<h2> How are you feeling  ?</h2>
-				<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
-				<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
-				<PersonalizedRecButton />
+				<div className="mood-form-top">
+					<h2> How are you feeling  ?</h2>
+				</div>
+				<div className="mood-form-content">
+					{/* Optionally display a message or instructions */}
+					<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
+					<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
+					<PersonalizedRecButton />
+				</div>
 			</div>
 			<CategoriesSection categories={categories} />
 		</div>
