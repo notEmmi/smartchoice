@@ -11,46 +11,65 @@
 
 .mood-form {
 	text-align: center;
-	/* background-color: var(--misty-rose); */
-	/* padding: 2%; */
-	border: solid 1px var(--eggplant);
+	/* border: solid 1px var(--eggplant); */
+	margin-bottom: 24px;
 }
 
 .mood-form-top {
-	border-bottom: solid 1px var(--eggplant);
-	width: 100%;
+	/* border-bottom: solid 1px var(--eggplant); */
 	background-color: var(--pistachio);
 	padding-top: 2%;
 	padding-bottom: 2%;
+	padding-left: 2%;
 }
 
 .mood-form-content {
 	padding: 2%;
+	background-color: var(--tea-rose-red);
 }
 
-.mood-buttons, .current-moods {
+.available-moods, .selected-moods  {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 2%;
+}
+
+.moods-title {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 2%;
+	gap: 10px;
+}
+
+.moods-icon {
+	stroke-width: 3px;
+	height: 27px;
+}
+
+.mood-buttons {
 	display: flex;
 	flex-direction: row;
 	gap: 24px;
 	flex-wrap: wrap;
 }
 
-.current-moods {
+.current {
 	align-items: center;
 	margin-bottom: 24px;
 }
 
 .categories {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 	gap: 24px;
 	width: 100%;
+	justify-items: start;
+	align-items: start; /* ensures top alignment for all items */
 }
 
-.category {
-	background: var(--white);
-	border: 1px solid var(--eggplant);
-	border-radius: 8px;
+.category, .add-category {
+	/* border: 1px solid var(--eggplant); */
 	padding: 16px;
 	text-align: center;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -58,13 +77,31 @@
 	flex-direction: column;
 	align-items: center;
 	box-sizing: border-box;
+	width: 180px;      /* Fixed width for all categories */
+	max-width: 180px;  /* Prevent growing larger */
+	min-width: 180px;  /* Prevent shrinking smaller */
+	background-color: var(--tea-rose-red);
+	transition: transform 0.2s;
+	cursor: pointer;
 }
 
-.category-image {
-	width: 120px;
-	height: 120px;
+.category:hover, .add-category:hover {
+	transform: scale(1.2);
+	color: var(--dark-eggplant);
+
+}
+
+.add-category {
+	background-color: var(--pistachio);
+}
+
+.category-image, .add-image {
+	width: 150px;
+	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	margin-bottom: 12px;
-	background-color: aquamarine;
+	background-color: var(--misty-rose);
+	border: 1px solid;
+	border-radius: 8px;
 }
 

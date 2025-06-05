@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../css/home.css"
 import { MoodButton, CurrentMoodButton, PersonalizedRecButton } from "./buttons";
-import DefaultImage from "../assets/logo.png"
+import PlaceHolder from "../assets/placeholder.png";
+import AddImage from "../assets/add.png";
+import { Heart, Brain } from 'lucide-react'
+import { useNavigate } from "react-router-dom";
 
 function recommendActivities(categories, selectedMoods) {
   const results = [];
@@ -32,9 +35,12 @@ function recommendActivities(categories, selectedMoods) {
 // Current moods section
 const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
 	currentMoods.length > 0 && (
-		<>
-			<h3>Selected Moods</h3>
-			<div className="current-moods">
+		<div className="selected-moods">
+			<div className="moods-title">
+				<Heart className="moods-icon heart-icon"/><h3>Selected Moods</h3>
+			</div>
+			<p className="tagline">Click to change your mind</p>
+			<div className="mood-buttons current">
 				{currentMoods.map((mood, idx) => (
 					<CurrentMoodButton
 						key={idx}
@@ -43,15 +49,18 @@ const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
 					/>
 				))}
 			</div>
-		</>
+		</div>
 	)
 );
 
 // Mood buttons section
 const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
-	<>
-		<h3>Available Moods</h3>
-		<div className="mood-buttons">
+	<div className="available-moods">
+		<div className="moods-title">
+			<Brain className="moods-icon brain-icon"/><h3 className="moods-title">Available Moods</h3>
+		</div>
+		<p className="tagline">Choose your vibe</p>
+		<div className="mood-buttons available">
 			{moods && moods
 				.filter(mood => !currentMoods.includes(mood))
 				.map((mood, idx) => (
@@ -64,20 +73,37 @@ const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
 					</MoodButton>
 				))}
 		</div>
-	</>
+	</div>
 );
 
 // Categories section
-const CategoriesSection = ({ categories }) => (
-	<div className="categories">
-		{categories && categories.map((category, idx) => (
-			<div className="category" key={idx}>
-				<img src={ DefaultImage } className="category-image" alt="Category" />
-				<p><strong>{category.name}</strong></p>
+const CategoriesSection = ({ categories }) => {
+	const navigate = useNavigate();
+
+	return (
+		<div className="categories">
+			{categories && categories.map((category, idx) => (
+				<div
+					className="category"
+					key={idx}
+					onClick={() => navigate(`/category/${encodeURIComponent(category.name)}`)}
+					style={{ cursor: "pointer" }}
+				>
+					<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
+					<p><strong>{category.name}</strong></p>
+				</div>
+			))}
+			<div
+				className="add-category"
+				onClick={() => navigate("/addcategory")}
+				style={{ cursor: "pointer" }}
+			>
+				<img src={AddImage} className="add-image" alt="add image" />
+				<p><strong>Add Category</strong></p>
 			</div>
-		))}
-	</div>
-);
+		</div>
+	);
+};
 
 const Home = ({ categories, moods }) => {
 	const [currentMoods, setCurrentMoods] = useState([])
@@ -105,13 +131,13 @@ const Home = ({ categories, moods }) => {
 			<p className="tagline">Discover activities tailored to your current mood and preferences</p>
 			<div className="mood-form">
 				<div className="mood-form-top">
-					<h2> How are you feeling  ?</h2>
+					<h2> How are you feeling?</h2>
 				</div>
 				<div className="mood-form-content">
 					{/* Optionally display a message or instructions */}
 					<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
 					<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
-					<PersonalizedRecButton />
+					<PersonalizedRecButton onClick={handleReccomendations} />
 				</div>
 			</div>
 			<CategoriesSection categories={categories} />

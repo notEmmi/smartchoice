@@ -1,5 +1,7 @@
 button:hover {
   cursor:pointer;
+  transform: scale(1.2);
+  color: var(--dark-eggplant);
 }
 
 .start-button,
@@ -28,12 +30,6 @@ button:hover {
   margin-top: 40px;
 }
 
-.start-button:hover {
-  transform: scale(1.2);
-  color: var(--dark-eggplant);
-}
-
-
 .mood-button, 
 .current-mood-button {
   background-color: var(--pistachio);
@@ -42,48 +38,25 @@ button:hover {
   font-size: 1.1em;
   margin-bottom: 8px;
   box-sizing: border-box;
-  display: inline-block; /* Add this to prevent full width */
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-right: 0.8em;
+}
+
+.mood-button:last-child,
+.current-mood-button:last-child {
+  margin-bottom: 2px;
 }
 
 .current-mood-button {
   background-color: var(--bakermiller-pink);
-  padding-right: 0.8em;
-}
-
-.current-mood-button:hover {
-  cursor: default;
-}
-
-.mood {
-  background-color: var(--pistachio);
-}
-
-.remove-x {
-  margin-left: 8px;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  vertical-align: middle;
-
-  /* Optional: for better click target */
-  padding: 2px;
-  border-radius: 50%;
-  transition: background 0.2s, transform 0.2s;
-
-  font-weight: 900;
-  font-size: 1.3em;
-  line-height: 1;
-}
-
-.remove-x:hover, .remove-x:focus {
-  background: rgba(0,0,0,0.08);
-  transform: scale(1.2);
-
-  outline: none;
 }
 
 .personalized-recc-button {
-  background: var(--tea-rose-red);
+  background: var(--seashell);
   color: var(--eggplant);
   padding: 0.75em 2em;
   font-size: 16px;
@@ -105,4 +78,27 @@ button:hover {
   background: linear-gradient(90deg, var(--tea-rose-red) 80%, #fff0f5 100%);
   color: var(--eggplant);
   transform: scale(1.04);
+}
+
+.mood-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mood-btn-text {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.heartplus-icon,
+.heartminus-icon {
+  height: 22px;
+  width: 22px;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+  margin-left: 10px;
 }
