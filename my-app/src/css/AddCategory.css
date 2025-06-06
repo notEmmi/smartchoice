@@ -1,0 +1,6 @@
+.add-cat-form,
+.add-cat-form-top,
+.add-cat-form-content {
+	/* No longer needed, handled by .form-container, .form-top, .form-content */
+	display: none;
+}

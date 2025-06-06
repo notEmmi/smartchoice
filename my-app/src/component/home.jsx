@@ -5,6 +5,7 @@ import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
 import { Heart, Brain } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
+import FormContainer from "./FormContainer";
 
 function recommendActivities(categories, selectedMoods) {
   const results = [];
@@ -127,17 +128,12 @@ const Home = ({ categories, moods }) => {
 		<div className="home-container">
 			<h1>SmartChoice</h1>
 			<p className="tagline">Discover activities tailored to your current mood and preferences</p>
-			<div className="mood-form">
-				<div className="mood-form-top">
-					<h2> How are you feeling?</h2>
-				</div>
-				<div className="mood-form-content">
-					{/* Optionally display a message or instructions */}
-					<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
-					<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
-					<PersonalizedRecButton onClick={handleReccomendations} />
-				</div>
-			</div>
+			<FormContainer title="How are you feeling?">
+				{/* Optionally display a message or instructions */}
+				<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
+				<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
+				<PersonalizedRecButton onClick={handleReccomendations} />
+			</FormContainer>
 			<CategoriesSection categories={categories} />
 		</div>
 	)

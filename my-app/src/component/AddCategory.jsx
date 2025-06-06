@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/AddCategory.css';
+import FormContainer from './FormContainer';
 
 
 const AddCategory = ({ categories, setCategories }) => {
@@ -50,44 +51,54 @@ const AddCategory = ({ categories, setCategories }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				value={category}
-				onChange={(e) => setCategory(e.target.value)}
-				placeholder="Category name"
-			/>
-			<input
-				type="text"
-				value={categoryMood}
-				onChange={(e) => setCategoryMood(e.target.value)}
-				placeholder="Mood for this category"
-				style={{ display: 'block', marginTop: 8 }}
-			/>
-			{activities.map((activity, idx) => (
-				<div key={idx} style={{ marginTop: 8 }}>
-					<input
-						type="text"
-						value={activity.name}
-						onChange={(e) => handleActivityChange(idx, 'name', e.target.value)}
-						placeholder={`Activity ${idx + 1}`}
-						style={{ marginRight: 8 }}
-					/>
-					<input
-						type="text"
-						value={activity.mood}
-						onChange={(e) => handleActivityChange(idx, 'mood', e.target.value)}
-						placeholder="Mood for this activity"
-					/>
+		<div className='addCat-container'>
+			<h1>Add Category</h1>
+			<p className='tagline'>Organize your world—add a category, set the mood, and fill it with activities!</p>
+			<FormContainer title="Add Category">
+				<input
+					type="text"
+					value={category}
+					onChange={(e) => setCategory(e.target.value)}
+					placeholder="Category name"
+				/>
+				<input
+					type="text"
+					value={categoryMood}
+					onChange={(e) => setCategoryMood(e.target.value)}
+					placeholder="Mood for this category"
+					style={{ display: 'block', marginTop: 8 }}
+				/>
+				{activities.map((activity, idx) => (
+					<div key={idx} style={{ marginTop: 8 }}>
+						<input
+							type="text"
+							value={activity.name}
+							onChange={(e) => handleActivityChange(idx, 'name', e.target.value)}
+							placeholder={`Activity ${idx + 1}`}
+							style={{ marginRight: 8 }}
+						/>
+						<input
+							type="text"
+							value={activity.mood}
+							onChange={(e) => handleActivityChange(idx, 'mood', e.target.value)}
+							placeholder="Mood for this activity"
+						/>
+					</div>
+				))}
+				<div style={{ marginTop: 8 }}>
+					<button type="button" onClick={handleAddActivity}>
+						Add Activity
+					</button>
+					<button
+						type="button"
+						style={{ marginLeft: 8 }}
+						onClick={handleSubmit}
+					>
+						Add Category
+					</button>
 				</div>
-			))}
-			<button type="button" onClick={handleAddActivity} style={{ marginTop: 8 }}>
-				Add Activity
-			</button>
-			<button type="submit" style={{ marginLeft: 8 }}>
-				Add Category
-			</button>
-		</form>
+			</FormContainer>
+		</div>
 	);
 };
 
