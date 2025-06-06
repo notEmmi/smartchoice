@@ -7,6 +7,7 @@ import Start from "./component/start.jsx";
 import Background from "./component/background.jsx"
 import StyleGuide from "./component/styleGuide.jsx"
 import Home from "./component/home.jsx"
+import AddCategory from './component/AddCategory.jsx';
 
 const App = () => {
   const [categories, setCategories] = useState([])
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/" element={<Start />} />
               <Route path="/home" element={<Home categories={categories} moods={moods} />} />
               <Route path="/styleguide" element={<StyleGuide />} />
+              <Route path="/addcategory" element={<AddCategory categories={categories} setCategories={setCategories} moods={moods} setMoods={setMoods} />} />
             </Routes>
           </Background>
       </div>
