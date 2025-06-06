@@ -27,7 +27,7 @@ h1, h2 {
 
 h1 {
   font-size: 68px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 h2 {
@@ -53,6 +53,7 @@ p.tagline {
   color: var(--dark-eggplant);
   letter-spacing: 1px;
   font-style: italic;
+  margin-top: 0;
 }
 
 p.home-icon {
