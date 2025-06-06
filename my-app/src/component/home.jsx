@@ -87,7 +87,6 @@ const CategoriesSection = ({ categories }) => {
 					className="category"
 					key={idx}
 					onClick={() => navigate(`/category/${encodeURIComponent(category.name)}`)}
-					style={{ cursor: "pointer" }}
 				>
 					<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
 					<p><strong>{category.name}</strong></p>
@@ -96,7 +95,6 @@ const CategoriesSection = ({ categories }) => {
 			<div
 				className="add-category"
 				onClick={() => navigate("/addcategory")}
-				style={{ cursor: "pointer" }}
 			>
 				<img src={AddImage} className="add-image" alt="add image" />
 				<p><strong>Add Category</strong></p>
