@@ -1,26 +1,8 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { contextBridge, ipcRenderer } = require('electron');
 
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional for security
-      nodeIntegration: true, // Enable Node.js features in renderer
-    },
-  });
-
-  win.loadURL('http://localhost:5173'); // Change port if using Create React App
-}
-
-app.whenReady().then(() => {
-  createWindow();
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+contextBridge.exposeInMainWorld('electronAPI', {
+  getCategories: () => ipcRenderer.invoke('get-categories'),
+  setCategories: (categories) => ipcRenderer.invoke('set-categories', categories),
+  getMoods: () => ipcRenderer.invoke('get-moods'),
+  setMoods: (moods) => ipcRenderer.invoke('set-moods', moods),
 });

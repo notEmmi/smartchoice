@@ -47,31 +47,31 @@
 	border-radius: 8px;
 }
 .styleguide-color-box.tea-rose-red {
-	background-color: #FBC4C9;
+	background-color: var(--tea-rose-red);
 }
 
 .styleguide-color-box.seashell {
-	background-color: #FDEEE7;
+	background-color: var(--seashell);
 }
 
 .styleguide-color-box.eggplant {
-	background-color: #60405A;
+	background-color: var(--eggplant);
 }
 
 .styleguide-color-box.dark-eggplant {
-	background-color: #3d2236;
+	background-color: var(--dark-eggplant);
 }
 
 .styleguide-color-box.pistachio {
-	background-color: #A8D18D;
+	background-color: var(--pistachio);
 }
 
 .styleguide-color-box.misty-rose {
-	background-color: #FDE7E9;
+	background-color: var(--misty-rose);
 }
 
 .styleguide-color-box.bakermiller-pink {
-	background-color: #F292AD;
+	background-color: var(--bakermiller-pink);
 }
 
 /* Typography */

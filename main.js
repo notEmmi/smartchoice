@@ -1,21 +1,66 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const fs = require('fs');
 const path = require('path');
+
+const dataFilePath = path.join(__dirname, 'data.json');
+
+function readData() {
+  try {
+    const raw = fs.readFileSync(dataFilePath, 'utf-8');
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error("Error reading data file:", err);
+    return {};
+  }
+}
+
+function writeData(data) {
+  try {
+    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (err) {
+    console.error("Error writing data file:", err);
+  }
+}
+
+ipcMain.handle('get-categories', () => {
+  return readData().categories || [];
+});
+
+ipcMain.handle('set-categories', (event, categories) => {
+  const currentData = readData();
+  currentData.categories = categories;
+  writeData(currentData);
+  return true;
+});
+
+ipcMain.handle('get-moods', () => {
+  return readData().moods || [];
+});
+
+ipcMain.handle('set-moods', (event, moods) => {
+  const currentData = readData();
+  currentData.moods = moods;
+  writeData(currentData);
+  return true;
+});
+
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1440,
+    width: 1024,
     height: 1024,
-    frame: false,
+    frame: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional for security
-      nodeIntegration: true, // Enable Node.js features in renderer
-      contextIsolation: false
+      preload: path.join(__dirname, 'preload.js'), // ✅ Make sure this path is correct
+      contextIsolation: true,  // ✅ REQUIRED for contextBridge to work
+      nodeIntegration: false,  // ✅ MUST be false
     },
   });
 
-  win.loadURL('http://localhost:5173'); // Change port if using Create React App
-  win.setMenu(null);
+  win.loadURL('http://localhost:5173'); // or your React dev server
+  // win.webContents.openDevTools();  // opens devtool
 
+  win.setMenu(null);
 }
 
 app.whenReady().then(() => {

@@ -15,60 +15,56 @@ html, body {
   box-sizing: border-box;
 }
 
-h1 {
-  font-family: 'Luckiest Guy', cursive;
-  font-size: 68px;
-  line-height: 1.2;
-  margin-bottom: 10px;
+h1, h2, h3, p, li {
+  font-family: 'Inter', sans-serif;
+  color: var(--eggplant);
 }
 
-h2 {
+h1, h2 {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 38px;
-  line-height: 1.3;
   font-weight: 400;
 }
 
+h1 {
+  font-size: 68px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 1.3;
+  margin: auto;
+}
 
 h3 {
-  font-family: 'Inter', sans-serif;
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
+  margin: auto;
 }
 
-p {
-  font-family: 'Inter', sans-serif;
+p, li {
   font-size: 16px;
-  line-height: 1.6;
 }
 
 p.tagline {
-  font-family: 'Inter', sans-serif;
   font-size: 20px;
   color: var(--dark-eggplant);
   letter-spacing: 1px;
-  margin-top: 0;
-  margin-bottom: 24px;
   font-style: italic;
+  margin-top: 0;
 }
 
 p.home-icon {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 28px;
-}
-
-li {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 28px;
 }
 
 .code {
   margin-left: 8px;
-	font-family: monospace;
-	font-size: 0.95em;
+  font-family: monospace;
+  font-size: 0.95em;
 }
 
 
