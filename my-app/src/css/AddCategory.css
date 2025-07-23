@@ -4,3 +4,29 @@
 	/* No longer needed, handled by .form-container, .form-top, .form-content */
 	display: none;
 }
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.form-label {
+    width: 150px;
+    text-align: left;
+}
+.form-input {
+    flex: 1;
+    margin-left: 1rem;
+}
+.activity-row.form-row .form-input {
+    margin-left: 0.5rem;
+}
+.moods-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+.moods-row .form-input {
+    width: 120px;
+    margin-left: 0;
+}
