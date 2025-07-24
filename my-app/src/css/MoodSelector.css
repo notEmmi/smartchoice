@@ -27,8 +27,8 @@
 .mood-minus-icon,
 .mood-expand-icon {
 	cursor: pointer;
-	height: 24px;
-	width: 24px;
+	height: 32px;
+	width: 32px;
 	stroke-width: 2.5;
 	transition: transform 0.2s, color 0.2s;
 }

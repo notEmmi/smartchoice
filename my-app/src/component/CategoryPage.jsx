@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import "../css/CategoryPage"
+import "../css/CategoryPage.css"
 
 const Category = () => {
 	const { name } = useParams();
