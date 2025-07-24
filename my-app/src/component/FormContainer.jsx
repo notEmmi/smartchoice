@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/home.css";
+import "../css/HomePage.css";
 
 const FormContainer = ({ title, children, className = "" }) => (
   <div className={`form-container ${className}`}>

@@ -1,0 +1,48 @@
+.mood-selector {
+	text-align: center;
+	margin-bottom: 24px;
+	width: 100%;
+}
+
+.mood-selector-top {
+	background-color: var(--pistachio);
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+}
+
+.mood-selector-content {
+	padding: 2%;
+	background-color: var(--tea-rose-red);
+}
+
+.available-moods, .selected-moods  {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 2%;
+}
+
+.moods-title {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 2%;
+	gap: 10px;
+}
+
+.moods-icon {
+	stroke-width: 3px;
+	height: 27px;
+}
+
+.mood-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+
+.current {
+	align-items: center;
+	margin-bottom: 24px;
+}

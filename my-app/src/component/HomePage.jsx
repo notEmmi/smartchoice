@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "../css/home.css"
-import { MoodButton, CurrentMoodButton, PersonalizedRecButton } from "./buttons";
+import "../css/HomePage.css"
 import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
-import { Heart, Brain } from 'lucide-react'
 import { useNavigate } from "react-router-dom";
-import FormContainer from "./FormContainer";
+import MoodSelector from "./MoodSelector";
 
 function recommendActivities(categories, selectedMoods) {
   const results = [];
@@ -32,50 +30,6 @@ function recommendActivities(categories, selectedMoods) {
 
   return results.sort((a, b) => b.score - a.score);
 }
-
-// Current moods section
-const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
-	currentMoods.length > 0 && (
-		<div className="selected-moods">
-			<div className="moods-title">
-				<Heart className="moods-icon heart-icon"/><h3>Selected Moods</h3>
-			</div>
-			<p className="tagline">Click to change your mind</p>
-			<div className="mood-buttons current">
-				{currentMoods.map((mood, idx) => (
-					<CurrentMoodButton
-						key={idx}
-						mood={mood}
-						onRemove={() => onRemove(mood)}
-					/>
-				))}
-			</div>
-		</div>
-	)
-);
-
-// Mood buttons section
-const MoodButtonsSection = ({ moods, currentMoods, onAdd }) => (
-	<div className="available-moods">
-		<div className="moods-title">
-			<Brain className="moods-icon brain-icon"/><h3 className="moods-title">Available Moods</h3>
-		</div>
-		<p className="tagline">Choose your vibe</p>
-		<div className="mood-buttons available">
-			{moods && moods
-				.filter(mood => !currentMoods.includes(mood))
-				.map((mood, idx) => (
-					<MoodButton
-						type="button"
-						key={idx}
-						onClick={() => onAdd(mood)}
-					>
-						{mood}
-					</MoodButton>
-				))}
-		</div>
-	</div>
-);
 
 // Categories section
 const CategoriesSection = ({ categories }) => {
@@ -128,12 +82,13 @@ const Home = ({ categories, moods }) => {
 		<div className="home-container">
 			<h1>SmartChoice</h1>
 			<p className="tagline">Discover activities tailored to your current mood and preferences</p>
-			<FormContainer title="How are you feeling?">
-				{/* Optionally display a message or instructions */}
-				<CurrentMoodsSection currentMoods={currentMoods} onRemove={handleRemoveMood} />
-				<MoodButtonsSection moods={moods} currentMoods={currentMoods} onAdd={handleMoodClick} />
-				<PersonalizedRecButton onClick={handleReccomendations} />
-			</FormContainer>
+			<MoodSelector 
+				moods={moods}
+				currentMoods={currentMoods}
+				onAdd={handleMoodClick}
+				onRemove={handleRemoveMood}
+				onRecommendations={handleReccomendations}
+			/>
 			<CategoriesSection categories={categories} />
 		</div>
 	)

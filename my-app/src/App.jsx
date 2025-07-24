@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 
 /* Import Routes */
-import Start from "./component/start.jsx";
-import Background from "./component/background.jsx"
-import StyleGuide from "./component/styleGuide.jsx"
-import Home from "./component/home.jsx"
+import Start from "./component/StartPage.jsx";
+import Background from "./component/Frame.jsx";
+import StyleGuide from "./component/StyleGuide.jsx";
+import Home from "./component/HomePage.jsx"
 import AddCategory from './component/AddCategory.jsx';
 
 const App = () => {
@@ -34,6 +34,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
+
           <Background>
             <Routes>
               <Route path="/" element={<Start />} />

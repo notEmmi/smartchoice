@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/start.css';
+import '../css/StartPage.css';
 import logo from '../assets/logo.png'
-import { StartButton } from './buttons';
+import { StartButton } from './Buttons';
 
 const Start = () => {
 	const navigate = useNavigate();

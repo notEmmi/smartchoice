@@ -1,29 +1,29 @@
 .background {
-
+  width: 100%;
+  height: 100vh;
   border: solid 10px var(--eggplant);
   background-color: var(--seashell);
-  width: calc(100% - 150px); /* 75px left + 75px right */
-  height: calc(100% - 150px); /* 75px top + 75px bottom */
-  margin: 60px auto 90px auto; /* top right bottom left */
-
   box-shadow: 10px 10px 0px var(--dark-eggplant);
-
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .top-nav {
+  -webkit-app-region: drag; /* Make the bar draggable */
   display: flex;
   flex-direction: row;
   align-items: center;
   border-bottom: solid 5px;
   width: 100%;
-  height: 5vh;
+  height: 60px; /* Fixed height instead of viewport-relative */
   overflow: hidden;
-  /* Optional: Prevent text from wrapping out of nav */
   white-space: nowrap;
+  flex-shrink: 0; /* Prevent nav from shrinking */
 }
 
-.left-nav,
+
 .mid-nav,
 .right-nav {
   height: 100%;
@@ -33,24 +33,16 @@
   padding-bottom: 0;
 }
 
-.left-nav {
-  flex: 0.5;
-}
+
 
 .mid-nav {
-  flex: 2.4;
+  flex: .5;
 }
 
 .right-nav {
-  flex: 3;
+  flex: 4;
 }
 
-.left-nav {
-  border-right: solid 5px;
-  background-color: var(--pistachio);
-  padding-left: 20px;
-  justify-content: flex-start;
-}
 
 .mid-nav {
   background-color: var(--bakermiller-pink);
@@ -78,6 +70,8 @@
 .content {
   display: flex;
   margin: 50px;
+  min-height: calc(100% - 100px); /* Ensure content takes full available height minus margins */
+  box-sizing: border-box;
 }
 
 .home-icon {
@@ -99,6 +93,10 @@
   width: 26px;
 }
 
+.nav-icon {
+    -webkit-app-region: no-drag;
+}
+
 .nav-icon:hover {
   cursor: pointer;
   transform: scale(1.2);
@@ -106,8 +104,9 @@
 }
 
 .scrollable-content {
+  flex: 1;
   overflow-y: auto;
-  max-height: 78vh;
+  height: calc(100vh - 60px - 20px); /* Full height minus fixed nav height (60px) minus border (20px) */
   /* Custom scrollbar styles for Webkit browsers */
   scrollbar-width: auto; /* Firefox */
   scrollbar-color: var(--eggplant) var(--seashell); /* Firefox */

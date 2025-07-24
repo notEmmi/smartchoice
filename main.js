@@ -4,6 +4,8 @@ const path = require('path');
 
 const dataFilePath = path.join(__dirname, 'data.json');
 
+let win;
+
 function readData() {
   try {
     const raw = fs.readFileSync(dataFilePath, 'utf-8');
@@ -44,9 +46,21 @@ ipcMain.handle('set-moods', (event, moods) => {
   return true;
 });
 
+ipcMain.on('window-minimize', () => win.minimize());
+
+ipcMain.on('window:toggle-maximize', () => {
+  if (win.isMaximized()) {
+    win.unmaximize();
+  } else {
+    win.maximize();
+  }
+});
+
+ipcMain.on('window-close', () => win.close());
+
 
 function createWindow() {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 1024,
     height: 1024,
     frame: false, //disable native top bar
@@ -66,6 +80,10 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
+
+
+
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/styleGuide.css'
+import '../css/StyleGuide.css'
 import logo from '../assets/logo.png'
 import { Menu } from 'lucide-react';
 
