@@ -49,7 +49,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1024,
     height: 1024,
-    frame: true,
+    frame: false, //disable native top bar
+    titleBarStyle: 'hidden',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // ✅ Make sure this path is correct
       contextIsolation: true,  // ✅ REQUIRED for contextBridge to work
