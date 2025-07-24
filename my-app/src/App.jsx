@@ -8,6 +8,7 @@ import Background from "./component/Frame.jsx";
 import StyleGuide from "./component/StyleGuide.jsx";
 import Home from "./component/HomePage.jsx"
 import AddCategory from './component/AddCategory.jsx';
+import Category from './component/CategoryPage.jsx';
 
 const App = () => {
   const [categories, setCategories] = useState([])
@@ -34,15 +35,15 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-
-          <Background>
-            <Routes>
-              <Route path="/" element={<Start />} />
-              <Route path="/home" element={<Home categories={categories} moods={moods} />} />
-              <Route path="/styleguide" element={<StyleGuide />} />
-              <Route path="/addcategory" element={<AddCategory categories={categories} setCategories={setCategories} moods={moods} setMoods={setMoods} />} />
-            </Routes>
-          </Background>
+        <Background>
+          <Routes>
+            <Route path="/" element={<Start />} />
+            <Route path="/home" element={<Home categories={categories} moods={moods} />} />
+            <Route path="/styleguide" element={<StyleGuide />} />
+            <Route path="/addcategory" element={<AddCategory categories={categories} setCategories={setCategories} moods={moods} setMoods={setMoods} />} />
+            <Route path="/category/:name" element={<Category categories={categories} moods={moods} />} />
+          </Routes>
+        </Background>
       </div>
     </Router>
   );
