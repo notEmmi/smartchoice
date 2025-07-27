@@ -4,6 +4,7 @@ import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
 import { useNavigate } from "react-router-dom";
 import MoodSelector from "./MoodSelector";
+import CategoriesSection from "./CategoryPage";
 
 function recommendActivities(categories, selectedMoods) {
   const results = [];
@@ -30,33 +31,6 @@ function recommendActivities(categories, selectedMoods) {
 
   return results.sort((a, b) => b.score - a.score);
 }
-
-// Categories section
-const CategoriesSection = ({ categories }) => {
-	const navigate = useNavigate();
-
-	return (
-		<div className="categories">
-			{categories && categories.map((category, idx) => (
-				<div
-					className="category"
-					key={idx}
-					onClick={() => navigate(`/category/${encodeURIComponent(category.name)}`)}
-				>
-					<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
-					<p><strong>{category.name}</strong></p>
-				</div>
-			))}
-			<div
-				className="add-category"
-				onClick={() => navigate("/addcategory")}
-			>
-				<img src={AddImage} className="add-image" alt="add image" />
-				<p><strong>Add Category</strong></p>
-			</div>
-		</div>
-	);
-};
 
 const Home = ({ categories, moods }) => {
 	const [currentMoods, setCurrentMoods] = useState([])

@@ -1,14 +1,28 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import "../css/CategoryPage.css"
 
-const Category = () => {
-	const { name } = useParams();
-
+const CategoriesSection = ({ categories }) => {
+	const [isMinimized, setIsMinimized] = useState(false);
+	
 	return (
-		<div>
-			<h2>Category: {name}</h2>
-			{/* Add your category content here */}
+		<div className="categories">
+			{categories && categories.map((category, idx) => (
+				<div
+					className="category"
+					key={idx}
+					onClick={() => }
+				>
+					<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
+					<p><strong>{category.name}</strong></p>
+				</div>
+			))}
+			<div
+				className="add-category"
+				onClick={() => navigate("/addcategory")}
+			>
+				<img src={AddImage} className="add-image" alt="add image" />
+				<p><strong>Add Category</strong></p>
+			</div>
 		</div>
 	);
 };
