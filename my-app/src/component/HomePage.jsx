@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../css/HomePage.css"
-import PlaceHolder from "../assets/placeholder.png";
-import AddImage from "../assets/add.png";
+
 import { useNavigate } from "react-router-dom";
 import MoodSelector from "./MoodSelector";
 import CategoriesSection from "./CategoryPage";

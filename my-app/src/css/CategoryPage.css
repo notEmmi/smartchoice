@@ -1,0 +1,104 @@
+.categories {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 24px;
+	width: 100%;
+	justify-items: start;
+	align-items: start;
+}
+
+.category-container {
+	width: 100%;
+	min-width: 180px;
+}
+
+.category, .add-category {
+	padding: 16px;
+	text-align: center;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	width: 180px;
+	max-width: 180px;
+	min-width: 180px;
+	background-color: var(--tea-rose-red);
+	transition: transform 0.2s;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.category:hover, .add-category:hover {
+	transform: scale(1.05);
+	color: var(--dark-eggplant);
+}
+
+.add-category {
+	background-color: var(--pistachio);
+}
+
+.category-image, .add-image {
+	width: 150px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	margin-bottom: 12px;
+	background-color: var(--misty-rose);
+	border: 1px solid;
+	border-radius: 8px;
+}
+
+/* Expanded category styles - similar to mood selector */
+.category-expanded {
+	width: 100%;
+	grid-column: 1 / -1; /* Take full width of the grid */
+	margin-bottom: 24px;
+}
+
+.category-expanded-header {
+	background-color: var(--pistachio);
+	padding: 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	border-radius: 8px 8px 0 0;
+}
+
+.category-expanded-header h3 {
+	margin: 0;
+	font-size: 24px;
+}
+
+.category-minimize-icon {
+	cursor: pointer;
+	height: 24px;
+	width: 24px;
+	stroke-width: 2.5;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.category-minimize-icon:hover {
+	transform: scale(1.1);
+	color: var(--dark-eggplant);
+}
+
+.category-expanded-content {
+	padding: 2%;
+	background-color: var(--tea-rose-red);
+	border-radius: 0 0 8px 8px;
+	text-align: left;
+}
+
+/* Responsive behavior for expanded categories */
+@media (min-width: 768px) {
+	.category-expanded {
+		grid-column: span 2; /* Take 2 columns on medium screens */
+	}
+}
+
+@media (min-width: 1200px) {
+	.category-expanded {
+		grid-column: span 3; /* Take 3 columns on large screens */
+	}
+}
