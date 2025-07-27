@@ -41,7 +41,7 @@ export const PersonalizedRecButton = ({ onClick, children }) => (
 		onClick={onClick}
 		className="personalized-recc-button"
 	>
-		{children || "Get Personalized Recommendations"}
+		{children || "Get a SmartChoice"}
 	</button>
 );
 

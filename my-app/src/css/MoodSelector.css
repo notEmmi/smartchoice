@@ -48,28 +48,24 @@
 
 .minimized-content h3 {
 	margin: 0;
-	font-size: 18px;
+	/* font-size: 18px; */
 }
 
 .minimized-moods {
 	display: flex;
 	gap: 8px;
 	flex-wrap: wrap;
+	row-gap: unset;
 }
 
 .minimized-mood-tag {
 	background-color: var(--bakermiller-pink);
-	color: var(--eggplant);
-	padding: 4px 12px;
+	padding: 0.5em 1.5em;
 	border-radius: 16px;
-	font-size: 14px;
-	font-weight: 600;
 }
 
 .no-moods-text {
-	color: var(--dark-eggplant);
 	font-style: italic;
-	font-size: 14px;
 }
 
 .mood-selector-content {

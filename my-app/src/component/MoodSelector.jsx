@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/MoodSelector.css";
 import { MoodButton, CurrentMoodButton, PersonalizedRecButton } from "./Buttons";
-import { Heart, Brain, Minus, Plus, ChevronDown, ChevronUp } from 'lucide-react';
+import { Heart, Brain, Minus, ChevronDown, ChevronUp, Maximize2 } from 'lucide-react';
 
 // Current moods section
 const CurrentMoodsSection = ({ currentMoods, onRemove }) => (
@@ -82,19 +82,19 @@ const MoodSelector = ({ moods, currentMoods, onAdd, onRemove, onRecommendations 
 						<div className="minimized-moods">
 							{currentMoods.length > 0 ? (
 								currentMoods.map((mood, idx) => (
-									<span key={idx} className="minimized-mood-tag">
+									<p key={idx} className="minimized-mood-tag">
 										{mood}
-									</span>
+									</p>
 								))
 							) : (
-								<span className="no-moods-text">No moods selected</span>
+								<p className="no-moods-text">No moods selected</p>
 							)}
 						</div>
 					</div>
-					<Plus 
+					<Maximize2 
 						className="mood-expand-icon" 
 						onClick={toggleMinimize}
-						title="Expand mood selector"
+						alt="Expand mood selector"
 					/>
 				</div>
 			</div>
@@ -108,7 +108,7 @@ const MoodSelector = ({ moods, currentMoods, onAdd, onRemove, onRecommendations 
 				<Minus 
 					className="mood-minus-icon" 
 					onClick={toggleMinimize}
-					title="Minimize mood selector"
+					alt="Minimize mood selector"
 				/>
 			</div>
 			<div className="mood-selector-content">
