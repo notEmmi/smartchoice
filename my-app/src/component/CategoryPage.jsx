@@ -32,42 +32,50 @@ const CategoriesSection = ({ categories }) => {
 	};
 	
 	return (
-		<div className="categories">
+		<div className="categories-section">
+			{/* Expanded categories displayed above the grid */}
 			{categories && categories.map((category, idx) => (
-				<div key={idx} className="category-container">
-					{!isCategoryExpanded(category.name) ? (
-						<div
-							className="category"
-							onClick={(e) => toggleCategory(category.name, e)}
-						>
-							<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
-							<p><strong>{category.name}</strong></p>
+				isCategoryExpanded(category.name) && (
+					<div key={`expanded-${idx}`} className="category-expanded">
+						<div className="category-expanded-header">
+							<h3>{category.name}</h3>
+							<Minus 
+								className="category-minimize-icon" 
+								onClick={(e) => toggleCategory(category.name, e)}
+								title="Minimize category"
+							/>
 						</div>
-					) : (
-						<div className="category-expanded">
-							<div className="category-expanded-header">
-								<h3>{category.name}</h3>
-								<Minus 
-									className="category-minimize-icon" 
-									onClick={(e) => toggleCategory(category.name, e)}
-									title="Minimize category"
-								/>
-							</div>
-							<div className="category-expanded-content">
-								{/* Content will be handled by parent component */}
-								<p>Category content goes here...</p>
-								{/* You can add more content here or pass it as props */}
-							</div>
+						<div className="category-expanded-content">
+							{/* Content will be handled by parent component */}
+							<p>Category content goes here...</p>
+							{/* You can add more content here or pass it as props */}
 						</div>
-					)}
-				</div>
+					</div>
+				)
 			))}
-			<div
-				className="add-category"
-				onClick={() => navigate("/addcategory")}
-			>
-				<img src={AddImage} className="add-image" alt="add image" />
-				<p><strong>Add Category</strong></p>
+			
+			{/* Categories grid */}
+			<div className="categories">
+				{categories && categories.map((category, idx) => (
+					!isCategoryExpanded(category.name) && (
+						<div key={idx} className="category-container">
+							<div
+								className="category"
+								onClick={(e) => toggleCategory(category.name, e)}
+							>
+								<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
+								<p><strong>{category.name}</strong></p>
+							</div>
+						</div>
+					)
+				))}
+				<div
+					className="add-category"
+					onClick={() => navigate("/addcategory")}
+				>
+					<img src={AddImage} className="add-image" alt="add image" />
+					<p><strong>Add Category</strong></p>
+				</div>
 			</div>
 		</div>
 	);
