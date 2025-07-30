@@ -7,6 +7,7 @@ import { Minus } from 'lucide-react';
 
 const CategoriesSection = ({ categories }) => {
 	const [expandedCategories, setExpandedCategories] = useState(new Set());
+	const [editingCategories, setEditingCategories] = useState(new Set());
 	const navigate = useNavigate();
 
 	const toggleCategory = (categoryName, event) => {
@@ -27,8 +28,29 @@ const CategoriesSection = ({ categories }) => {
 		});
 	};
 
+	const toggleEditMode = (categoryName, event) => {
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		
+		setEditingCategories(prev => {
+			const newSet = new Set(prev);
+			if (newSet.has(categoryName)) {
+				newSet.delete(categoryName);
+			} else {
+				newSet.add(categoryName);
+			}
+			return newSet;
+		});
+	};
+
 	const isCategoryExpanded = (categoryName) => {
 		return expandedCategories.has(categoryName);
+	};
+
+	const isCategoryEditing = (categoryName) => {
+		return editingCategories.has(categoryName);
 	};
 	
 	return (
@@ -46,10 +68,74 @@ const CategoriesSection = ({ categories }) => {
 							/>
 						</div>
 						<div className="category-expanded-content">
-							{/* Content will be handled by parent component */}
-							<p>Category content goes here...</p>
-							{/* You can add more content here or pass it as props */}
+							<div className="category-content-layout">
+								{/* Left side - Category image */}
+								<div className="category-image-section">
+									<img src={PlaceHolder || category.image} className="category-image-expanded" alt={`Category ${category.name}`} />
+									{isCategoryEditing(category.name) && (
+										<button className="change-image-button">change image</button>
+									)}
+								</div>
+								
+								{/* Right side - Activities list */}
+								<div className="activities-section">
+									{category.options && category.options.map((option, idx) => (
+										<div key={idx} className='activity-item'>
+											<div className="activity-content">
+												<span className="activity-name">{option.label}</span>
+												<div className="activity-moods">
+													{option.moods && option.moods.map((mood, moodIdx) => (
+														<span key={moodIdx} className="mood-tag">{mood}</span>
+													))}
+												</div>
+											</div>
+											<div className="activity-actions">
+												{isCategoryEditing(category.name) && (
+													<>
+														<button className="edit-activity-button">✏️</button>
+														<button className="delete-activity-button">🗑️</button>
+													</>
+												)}
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+							
+							{/* Bottom buttons */}
+							<div className="category-bottom-actions">
+								<button className="pick-from-category-button">
+									Pick from This Category
+								</button>
+								<div className="category-action-buttons">
+									{!isCategoryEditing(category.name) ? (
+										<button 
+											className="edit-category-button"
+											onClick={(e) => toggleEditMode(category.name, e)}
+										>
+											edit
+										</button>
+									) : (
+										<>
+											<button 
+												className="go-back-button"
+												onClick={(e) => toggleEditMode(category.name, e)}
+											>
+												Go Back
+											</button>
+											<button 
+												className="save-category-button"
+												onClick={(e) => toggleEditMode(category.name, e)}
+											>
+												SAVE
+											</button>
+											<button className="delete-category-button">DELETE</button>
+										</>
+									)}
+								</div>
+							</div>
 						</div>
+
 					</div>
 				)
 			))}
