@@ -3,43 +3,104 @@
     {
       "name": "Productivity",
       "options": [
-        { "label": "Do Homework", "weight": 1, "moods": ["focused", "motivated"] },
-        { "label": "Declutter Desk", "weight": 1, "moods": ["restless", "overwhelmed"] },
-        { "label": "Make a To-Do List", "weight": 1, "moods": ["scattered", "anxious"] }
+        {
+          "label": "Declutter Your Desk",
+          "weight": 1,
+          "moods": ["overwhelmed", "frustrated"]
+        },
+        {
+          "label": "Make a To-Do List",
+          "weight": 1,
+          "moods": ["anxious"]
+        },
+        {
+          "label": "Organize One Folder",
+          "weight": 1,
+          "moods": ["tired"]
+        }
       ]
     },
     {
       "name": "Creative",
       "options": [
-        { "label": "Sketch or Doodle", "weight": 1, "moods": ["bored", "inspired"] },
-        { "label": "Write a Journal Entry", "weight": 1, "moods": ["thoughtful", "sad"] },
-        { "label": "Try a New Recipe", "weight": 1, "moods": ["curious", "happy"] }
+        {
+          "label": "Sketch or Doodle Freely",
+          "weight": 1,
+          "moods": ["bored", "calm"]
+        },
+        {
+          "label": "Write a Journal Entry",
+          "weight": 1,
+          "moods": ["sad", "lonely"]
+        },
+        {
+          "label": "Try a New Recipe",
+          "weight": 1,
+          "moods": ["excited", "happy"]
+        }
       ]
     },
     {
       "name": "Self-Care",
       "options": [
-        { "label": "Take a Warm Shower", "weight": 1, "moods": ["tired", "anxious"] },
-        { "label": "Listen to Music", "weight": 1, "moods": ["low-energy", "sad"] },
-        { "label": "Do a Skincare Routine", "weight": 1, "moods": ["restless", "down"] }
+        {
+          "label": "Take a Warm Shower",
+          "weight": 1,
+          "moods": ["tired", "anxious"]
+        },
+        {
+          "label": "Listen to Music",
+          "weight": 1,
+          "moods": ["sad", "calm"]
+        },
+        {
+          "label": "Do a Quick Stretch",
+          "weight": 1,
+          "moods": ["frustrated", "overwhelmed"]
+        }
+      ]
+    },
+    {
+      "name": "Social",
+      "options": [
+        {
+          "label": "Call or Text a Friend",
+          "weight": 1,
+          "moods": ["lonely", "sad"]
+        },
+        {
+          "label": "Send a Meme or Reel",
+          "weight": 1,
+          "moods": ["happy", "excited"]
+        }
+      ]
+    },
+    {
+      "name": "Mindful",
+      "options": [
+        {
+          "label": "5-Minute Breathing Exercise",
+          "weight": 1,
+          "moods": ["anxious", "overwhelmed"]
+        },
+        {
+          "label": "Sit by a Window & Observe",
+          "weight": 1,
+          "moods": ["calm", "tired"]
+        }
       ]
     }
   ],
   "moods": [
-    "focused",
-    "motivated",
-    "restless",
-    "overwhelmed",
-    "scattered",
+    "happy",
+    "sad",
+    "frustrated",
     "anxious",
     "bored",
-    "inspired",
-    "thoughtful",
-    "sad",
-    "curious",
-    "happy",
     "tired",
-    "low-energy",
-    "down"
+    "excited",
+    "overwhelmed",
+    "lonely",
+    "calm"
   ]
 }
