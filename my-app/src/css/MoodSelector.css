@@ -29,7 +29,7 @@
 	cursor: pointer;
 	height: 32px;
 	width: 32px;
-	stroke-width: 2.5;
+	stroke-width: 3;
 	transition: transform 0.2s, color 0.2s;
 }
 

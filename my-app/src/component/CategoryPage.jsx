@@ -104,9 +104,12 @@ const CategoriesSection = ({ categories }) => {
 							
 							{/* Bottom buttons */}
 							<div className="category-bottom-actions">
-								<button className="pick-from-category-button">
-									Pick from This Category
-								</button>
+								{!isCategoryEditing(category.name) && (
+									<button className="pick-from-category-button">
+										Pick from This Category
+									</button>
+								)}
+								<div style={{ flex: 1 }}></div> {/* Spacer */}
 								<div className="category-action-buttons">
 									{!isCategoryEditing(category.name) ? (
 										<button 

@@ -74,9 +74,9 @@
 
 .category-minimize-icon {
 	cursor: pointer;
-	height: 24px;
-	width: 24px;
-	stroke-width: 2.5;
+	height: 32px;
+	width: 32px;
+	stroke-width: 3;
 	transition: transform 0.2s, color 0.2s;
 }
 
