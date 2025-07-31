@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/HomePage.css"
 
 import { useNavigate } from "react-router-dom";
@@ -31,8 +31,7 @@ function recommendActivities(categories, selectedMoods) {
   return results.sort((a, b) => b.score - a.score);
 }
 
-const Home = ({ categories, moods }) => {
-	const [currentMoods, setCurrentMoods] = useState([])
+const Home = ({ categories, moods, currentMoods, setCurrentMoods }) => {
 
 
 	// Handler to add mood if not already selected
