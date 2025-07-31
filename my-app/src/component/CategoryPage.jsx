@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/CategoryPage.css"
 import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
-import { Minus } from 'lucide-react';
+import { Minus, ArrowLeft } from 'lucide-react';
 
 const CategoriesSection = ({ categories }) => {
 	const [expandedCategories, setExpandedCategories] = useState(new Set());
@@ -60,6 +60,13 @@ const CategoriesSection = ({ categories }) => {
 				isCategoryExpanded(category.name) && (
 					<div key={`expanded-${idx}`} className="category-expanded">
 						<div className="category-expanded-header">
+							{isCategoryEditing(category.name) && (
+								<ArrowLeft 
+									className="category-back-icon" 
+									onClick={(e) => toggleEditMode(category.name, e)}
+									title="Go back"
+								/>
+							)}
 							<h2>{category.name}</h2>
 							<Minus 
 								className="category-minimize-icon" 
@@ -82,7 +89,9 @@ const CategoriesSection = ({ categories }) => {
 									{category.options && category.options.map((option, idx) => (
 										<div key={idx} className='activity-item'>
 											<div className="activity-content">
-												<span className="activity-name">{option.label}</span>
+												<div className='activity-name'>
+													<h3>{option.label}</h3>
+												</div>
 												<div className="activity-moods">
 													{option.moods && option.moods.map((mood, moodIdx) => (
 														<span key={moodIdx} className="mood-tag">{mood}</span>
@@ -120,12 +129,6 @@ const CategoriesSection = ({ categories }) => {
 										</button>
 									) : (
 										<>
-											<button 
-												className="go-back-button"
-												onClick={(e) => toggleEditMode(category.name, e)}
-											>
-												Go Back
-											</button>
 											<button 
 												className="save-category-button"
 												onClick={(e) => toggleEditMode(category.name, e)}
