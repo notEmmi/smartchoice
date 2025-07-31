@@ -29,6 +29,7 @@
 .tab2,
 .tab3,
 .tab4 {
+  -webkit-app-region: drag;
   height: 100%;
   display: flex;
   align-items: center;
@@ -36,10 +37,10 @@
   padding-bottom: 0;
 }
 
-/* Tab 1 - Logo/Home (Pink when active) */
+/* Tab 1 - Logo/Home */
 .tab1 {
   flex: 1;
-  background-color: var(--bakermiller-pink);
+  background-color: var(--pistachio);
   justify-content: center;
   text-align: center;
   padding-left: 20px;
@@ -64,6 +65,11 @@
   border-right: 2px solid var(--eggplant);
 }
 
+/* Active tab styling */
+.active-tab {
+  background-color: var(--bakermiller-pink) !important;
+}
+
 /* Tab 4 - Window Controls (smaller for even icon spacing) */
 .tab4 {
   flex: 0.7;
@@ -77,27 +83,33 @@
   cursor: pointer;
   font-weight: 600;
   color: var(--eggplant);
-  transition: background-color 0.2s;
   user-select: none;
-  width: 100%;
-  height: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.1s;
 }
 
 .nav-tab:hover {
-  background-color: var(--misty-rose);
+  transform: scale(1.2);
 }
 
 .home-icon {
+  -webkit-app-region: no-drag;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-weight: 600;
   color: var(--eggplant);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s;
 }
+
 
 .nav-logo {
   height: 50px;
@@ -144,7 +156,6 @@
   cursor: pointer;
   transform: scale(1.1);
   color: var(--dark-eggplant);
-  background-color: var(--misty-rose);
 }
 
 .scrollable-content {

@@ -1,20 +1,27 @@
 import React from 'react';
 import '../css/Frame.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { Menu, X, Square, Minus } from 'lucide-react';
+import { X, Square, Minus } from 'lucide-react';
 
 const Background = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Optional: toggleable menu handler can go here
+  const isCurrentTab = (path) => {
+    if (path === '/home') {
+      return location.pathname === '/' || location.pathname === '/home';
+    }
+    return location.pathname === path;
+  };
+
 
   return (
     <div className="background">
       {/* 🔧 Custom Title Bar */}
       <div className='top-nav'>
         {/* Tab 1 - Logo/Home */}
-        <div className='tab1'>
+        <div className={`tab1 ${isCurrentTab('/home') ? 'active-tab' : ''}`}>
           <div
             className='nav-icon home-icon'
             style={{ cursor: 'pointer' }}
@@ -24,27 +31,27 @@ const Background = ({ children }) => {
             }}
           >
             <img src={logo} className="nav-logo" alt="Logo" />
-            <span>SmartChoice</span>
+            <p>SMARTCHOICE</p>
           </div>
         </div>
         
         {/* Tab 2 - About */}
-        <div className='tab2'>
+        <div className={`tab2 ${isCurrentTab('/about') ? 'active-tab' : ''}`}>
           <div
             className='nav-tab'
             onClick={() => navigate('/about')}
           >
-            About
+            <p>ABOUT</p>
           </div>
         </div>
         
         {/* Tab 3 - Help */}
-        <div className='tab3'>
+        <div className={`tab3 ${isCurrentTab('/help') ? 'active-tab' : ''}`}>
           <div
             className='nav-tab'
             onClick={() => navigate('/help')}
           >
-            Help
+            <p>HELP</p>
           </div>
         </div>
         
