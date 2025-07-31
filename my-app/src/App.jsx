@@ -13,6 +13,16 @@ import Category from './component/CategoryPage.jsx';
 const App = () => {
   const [categories, setCategories] = useState([])
   const [moods, setMoods] = useState([])
+  const [currentMoods, setCurrentMoods] = useState(() => {
+    // Load from localStorage on initial load
+    const saved = localStorage.getItem('smartchoice-selected-moods');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Save to localStorage whenever currentMoods changes
+  useEffect(() => {
+    localStorage.setItem('smartchoice-selected-moods', JSON.stringify(currentMoods));
+  }, [currentMoods]);
 
   useEffect(() => {
     async function fetchData() {
@@ -38,7 +48,14 @@ const App = () => {
         <Background>
           <Routes>
             <Route path="/" element={<Start />} />
-            <Route path="/home" element={<Home categories={categories} moods={moods} />} />
+            <Route path="/home" element={
+              <Home 
+                categories={categories} 
+                moods={moods} 
+                currentMoods={currentMoods}
+                setCurrentMoods={setCurrentMoods}
+              />
+            } />
             <Route path="/styleguide" element={<StyleGuide />} />
             <Route path="/addcategory" element={<AddCategory categories={categories} setCategories={setCategories} moods={moods} setMoods={setMoods} />} />
             <Route path="/category/:name" element={<Category categories={categories} moods={moods} />} />
