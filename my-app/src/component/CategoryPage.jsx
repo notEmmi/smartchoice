@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/CategoryPage.css"
 import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
-import { Minus, ArrowLeft } from 'lucide-react';
+import { Minus, ArrowLeft, Pencil, Trash2 } from 'lucide-react';
 
 const CategoriesSection = ({ categories }) => {
 	const [expandedCategories, setExpandedCategories] = useState(new Set());
@@ -101,8 +101,12 @@ const CategoriesSection = ({ categories }) => {
 											<div className="activity-actions">
 												{isCategoryEditing(category.name) && (
 													<>
-														<button className="edit-activity-button">✏️</button>
-														<button className="delete-activity-button">🗑️</button>
+														<button className="edit-activity-button">
+															<Pencil className='icon pencil-icon'/>
+														</button>
+														<button className="delete-activity-button">
+															<Trash2 className='icon trash-2-icon' />
+														</button>
 													</>
 												)}
 											</div>

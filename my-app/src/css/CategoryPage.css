@@ -296,3 +296,7 @@
 .delete-category-button:hover {
 	transform: scale(1.05);
 }
+
+.trash-2-icon, .pencil-icon {
+	stroke-width: 2;
+}

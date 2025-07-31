@@ -13,8 +13,8 @@ const Background = ({ children }) => {
     <div className="background">
       {/* 🔧 Custom Title Bar */}
       <div className='top-nav'>
-
-        <div className='mid-nav'>
+        {/* Tab 1 - Logo/Home */}
+        <div className='tab1'>
           <div
             className='nav-icon home-icon'
             style={{ cursor: 'pointer' }}
@@ -24,9 +24,32 @@ const Background = ({ children }) => {
             }}
           >
             <img src={logo} className="nav-logo" alt="Logo" />
+            <span>SmartChoice</span>
           </div>
         </div>
-        <div className='right-nav'>
+        
+        {/* Tab 2 - About */}
+        <div className='tab2'>
+          <div
+            className='nav-tab'
+            onClick={() => navigate('/about')}
+          >
+            About
+          </div>
+        </div>
+        
+        {/* Tab 3 - Help */}
+        <div className='tab3'>
+          <div
+            className='nav-tab'
+            onClick={() => navigate('/help')}
+          >
+            Help
+          </div>
+        </div>
+        
+        {/* Tab 4 - Window Controls */}
+        <div className='tab4'>
           <Minus
             className='nav-icon minus-icon'
             onClick={() => window.electronAPI?.minimize?.()}

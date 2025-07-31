@@ -79,3 +79,10 @@ p.home-icon {
   overflow: hidden; /* Prevent overflow issues */
   box-sizing: border-box;
 }
+
+.icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 3;
+  color: var(--eggplant);
+}
