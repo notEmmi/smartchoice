@@ -37,6 +37,46 @@
           "label": "Try a New Recipe",
           "weight": 1,
           "moods": ["excited", "happy"]
+        },
+        {
+          "label": "Take Photos of Everyday Objects",
+          "weight": 1,
+          "moods": ["bored", "calm"]
+        },
+        {
+          "label": "Write a Short Story or Poem",
+          "weight": 1,
+          "moods": ["calm", "lonely"]
+        },
+        {
+          "label": "Create a Vision Board",
+          "weight": 1,
+          "moods": ["excited", "happy"]
+        },
+        {
+          "label": "Learn a New Craft Technique",
+          "weight": 1,
+          "moods": ["bored", "calm"]
+        },
+        {
+          "label": "Rearrange Your Room Decor",
+          "weight": 1,
+          "moods": ["bored", "excited"]
+        },
+        {
+          "label": "Start a Creative Challenge",
+          "weight": 1,
+          "moods": ["excited", "happy"]
+        },
+        {
+          "label": "Make Art with Found Materials",
+          "weight": 1,
+          "moods": ["bored", "happy"]
+        },
+        {
+          "label": "Design Your Dream Space",
+          "weight": 1,
+          "moods": ["calm", "excited"]
         }
       ]
     },

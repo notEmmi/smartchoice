@@ -18,7 +18,10 @@ const Background = ({ children }) => {
           <div
             className='nav-icon home-icon'
             style={{ cursor: 'pointer' }}
-            onClick={() => navigate('/home')}
+            onClick={() => {
+              navigate('/home');
+              window.location.reload();
+            }}
           >
             <img src={logo} className="nav-logo" alt="Logo" />
           </div>

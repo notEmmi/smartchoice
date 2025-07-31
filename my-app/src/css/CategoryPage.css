@@ -48,7 +48,6 @@
 	margin-bottom: 12px;
 	background-color: var(--misty-rose);
 	border: 1px solid;
-	border-radius: 8px;
 }
 
 /* Expanded category styles - full width like mood selector */
@@ -101,15 +100,15 @@
 
 /* Left side - Image section */
 .category-image-section {
-	flex: 0 0 300px;
+	flex: 0 0 350px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
 .category-image-expanded {
-	width: 100%;
-	aspect-ratio: 1 / 1;
+	width: 318px;
+	height: 318px;
 	object-fit: cover;
 	border: 2px solid var(--eggplant);
 	border-radius: 8px;
@@ -121,8 +120,8 @@
 	color: var(--eggplant);
 	border: 1px solid var(--eggplant);
 	border-radius: 4px;
-	padding: 8px 16px;
-	font-size: 12px;
+	padding: 0px 16px;
+	font-size: 16px;
 	cursor: pointer;
 	transition: background 0.2s;
 }
@@ -137,6 +136,11 @@
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+	background-color: var(--misty-rose);
+	max-height: 350px;
+	overflow-y: auto;
+	padding: 16px;
+	border-radius: 8px;
 }
 
 .activity-item {
@@ -147,6 +151,11 @@
 	padding: 12px 16px;
 	border-radius: 8px;
 	border: 1px solid var(--eggplant);
+	border-bottom: 2px solid var(--eggplant);
+}
+
+.activity-item:not(:last-child) {
+	margin-bottom: 12px;
 }
 
 .activity-content {
@@ -212,18 +221,16 @@
 .pick-from-category-button {
 	background: var(--seashell);
 	color: var(--eggplant);
-	border: 1px solid var(--eggplant);
+	border: 0;
 	border-radius: 6px;
 	padding: 12px 24px;
-	font-size: 14px;
+	font-size: 24px;
 	font-weight: 600;
 	cursor: pointer;
-	transition: background 0.2s;
+  	margin-bottom: 0.5rem;
+
 }
 
-.pick-from-category-button:hover {
-	background: var(--pistachio);
-}
 
 .category-action-buttons {
 	display: flex;

@@ -1,14 +1,15 @@
 button:hover {
   cursor:pointer;
-  transform: scale(1.2);
+  transform: scale(1.04);
   color: var(--dark-eggplant);
+  font-family: 'Inter', sans-serif;
+
 }
 
 .start-button,
 .mood-button,
 .current-mood-button,
 .personalized-recc-button {
-  font-family: 'Inter', sans-serif;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -73,7 +74,6 @@ button:hover {
 .personalized-recc-button:focus,
 .personalized-recc-button:hover {
   color: var(--dark-eggplant);
-  transform: scale(1.04);
 }
 
 .mood-btn-content {

@@ -60,7 +60,7 @@ const CategoriesSection = ({ categories }) => {
 				isCategoryExpanded(category.name) && (
 					<div key={`expanded-${idx}`} className="category-expanded">
 						<div className="category-expanded-header">
-							<h3>{category.name}</h3>
+							<h2>{category.name}</h2>
 							<Minus 
 								className="category-minimize-icon" 
 								onClick={(e) => toggleCategory(category.name, e)}
@@ -73,7 +73,7 @@ const CategoriesSection = ({ categories }) => {
 								<div className="category-image-section">
 									<img src={PlaceHolder || category.image} className="category-image-expanded" alt={`Category ${category.name}`} />
 									{isCategoryEditing(category.name) && (
-										<button className="change-image-button">change image</button>
+										<button className="change-image-button"><p>change image</p></button>
 									)}
 								</div>
 								
@@ -106,7 +106,7 @@ const CategoriesSection = ({ categories }) => {
 							<div className="category-bottom-actions">
 								{!isCategoryEditing(category.name) && (
 									<button className="pick-from-category-button">
-										Pick from This Category
+										PICK FROM THIS CATEGORY
 									</button>
 								)}
 								<div style={{ flex: 1 }}></div> {/* Spacer */}
