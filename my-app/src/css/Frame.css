@@ -38,7 +38,7 @@
 
 /* Tab 1 - Logo/Home (Pink when active) */
 .tab1 {
-  flex: 2;
+  flex: 1;
   background-color: var(--bakermiller-pink);
   justify-content: center;
   text-align: center;
@@ -64,11 +64,10 @@
   border-right: 2px solid var(--eggplant);
 }
 
-/* Tab 4 - Window Controls */
+/* Tab 4 - Window Controls (smaller for even icon spacing) */
 .tab4 {
-  flex: 1;
+  flex: 0.7;
   background-color: var(--pistachio);
-  padding: 0 20px;
   justify-content: space-evenly;
 }
 
@@ -136,12 +135,16 @@
 
 .nav-icon {
     -webkit-app-region: no-drag;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.1s, color 0.2s;
 }
 
 .nav-icon:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: var(--dark-eggplant);
+  background-color: var(--misty-rose);
 }
 
 .scrollable-content {
