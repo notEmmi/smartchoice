@@ -46,6 +46,17 @@ ipcMain.handle('set-moods', (event, moods) => {
   return true;
 });
 
+ipcMain.handle('get-selected-moods', () => {
+  return readData().selectedMoods || [];
+});
+
+ipcMain.handle('set-selected-moods', (event, selectedMoods) => {
+  const currentData = readData();
+  currentData.selectedMoods = selectedMoods;
+  writeData(currentData);
+  return true;
+});
+
 ipcMain.on('window-minimize', () => win.minimize());
 
 ipcMain.on('window:toggle-maximize', () => {

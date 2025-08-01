@@ -12,6 +12,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   setCategories: (categories) => ipcRenderer.invoke('set-categories', categories),
   getMoods: () => ipcRenderer.invoke('get-moods'),
   setMoods: (moods) => ipcRenderer.invoke('set-moods', moods),
+  getSelectedMoods: () => ipcRenderer.invoke('get-selected-moods'),
+  setSelectedMoods: (selectedMoods) => ipcRenderer.invoke('set-selected-moods', selectedMoods),
 
 
 });
