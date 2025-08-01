@@ -1,0 +1,302 @@
+
+
+.categories-section {
+	width: 100%;
+}
+
+.categories {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 24px;
+	width: 100%;
+	justify-items: start;
+	align-items: start;
+}
+
+.category-container {
+	width: 100%;
+	min-width: 180px;
+}
+
+.category, .add-category {
+	padding: 16px;
+	text-align: center;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	width: 180px;
+	max-width: 180px;
+	min-width: 180px;
+	background-color: var(--tea-rose-red);
+	transition: transform 0.2s;
+	cursor: pointer;
+}
+
+.category:hover, .add-category:hover {
+	transform: scale(1.05);
+	color: var(--dark-eggplant);
+}
+
+.add-category {
+	background-color: var(--pistachio);
+}
+
+.category-image, .add-image {
+	width: 150px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	margin-bottom: 12px;
+	background-color: var(--misty-rose);
+	border: 1px solid;
+}
+
+/* Expanded category styles - full width like mood selector */
+.category-expanded {
+	text-align: center;
+	margin-bottom: 48px;
+	width: 100%;
+}
+
+.category-expanded-header {
+	background-color: var(--pistachio);
+	padding: 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	position: relative;
+}
+
+.category-back-icon {
+	position: absolute;
+	left: 2%;
+	cursor: pointer;
+	height: 32px;
+	width: 32px;
+	stroke-width: 3;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.category-back-icon:hover {
+	transform: scale(1.1);
+	color: var(--dark-eggplant);
+}
+
+.category-expanded-header h3 {
+	margin: 0;
+	font-size: 24px;
+}
+
+.category-minimize-icon {
+	cursor: pointer;
+	height: 32px;
+	width: 32px;
+	stroke-width: 3;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.category-minimize-icon:hover {
+	transform: scale(1.1);
+	color: var(--dark-eggplant);
+}
+
+.category-expanded-content {
+	padding: 2%;
+	background-color: var(--tea-rose-red);
+	text-align: left;
+	border-radius: 0 0 8px 8px;
+}
+
+/* Main content layout - image on left, activities on right */
+.category-content-layout {
+	display: flex;
+	gap: 24px;
+	margin-bottom: 24px;
+}
+
+/* Left side - Image section */
+.category-image-section {
+	flex: 0 0 350px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.category-image-expanded {
+	width: 378px;
+	height: 378px;
+	object-fit: cover;
+	border: 2px solid var(--eggplant);
+	border-radius: 8px;
+	margin-bottom: 12px;
+	background-color: var(--misty-rose);
+}
+
+.change-image-button {
+	background: var(--seashell);
+	color: var(--eggplant);
+	border: 1px solid var(--eggplant);
+	border-radius: 4px;
+	padding: 0px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.change-image-button:hover {
+	background: var(--pistachio);
+}
+
+/* Right side - Activities section */
+.activities-section {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	background-color: var(--misty-rose);
+	max-height: 350px;
+	overflow-y: auto;
+	padding: 16px;
+	border-radius: 8px;
+}
+
+.activity-item {
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: flex-start;
+	background: var(--seashell);
+	padding: 12px 16px;
+	border-radius: 8px;
+	border: 1px solid var(--eggplant);
+	border-bottom: 2px solid var(--eggplant);
+}
+
+.activity-item:not(:last-child) {
+	margin-bottom: 12px;
+}
+
+.activity-content {
+	flex: 1;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.activity-name {
+	color: var(--eggplant);
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.activity-moods {
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.mood-tag {
+	background-color: var(--pistachio);
+	color: var(--eggplant);
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.activity-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.edit-activity-button,
+.delete-activity-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 4px;
+	transition: background 0.2s;
+}
+
+.edit-activity-button:hover {
+	background: var(--pistachio);
+}
+
+.delete-activity-button:hover {
+	background: var(--bakermiller-pink);
+}
+
+/* Bottom action buttons */
+.category-bottom-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}
+
+.pick-from-category-button {
+	background: var(--seashell);
+	color: var(--eggplant);
+	border: 0;
+	border-radius: 6px;
+	padding: 12px 24px;
+	font-size: 24px;
+	font-weight: 600;
+	cursor: pointer;
+  	margin-bottom: 0.5rem;
+
+}
+
+
+.category-action-buttons {
+	display: flex;
+	gap: 12px;
+}
+
+.edit-category-button,
+.go-back-button,
+.save-category-button,
+.delete-category-button {
+	padding: 8px 16px;
+	border: 1px solid var(--eggplant);
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: 600;
+	transition: background 0.2s;
+}
+
+.edit-category-button {
+	background: var(--seashell);
+	color: var(--eggplant);
+}
+
+.go-back-button {
+	background: var(--misty-rose);
+	color: var(--eggplant);
+}
+
+.save-category-button {
+	background: var(--pistachio);
+	color: var(--eggplant);
+}
+
+.delete-category-button {
+	background: var(--bakermiller-pink);
+	color: var(--eggplant);
+}
+
+.edit-category-button:hover,
+.go-back-button:hover,
+.save-category-button:hover,
+.delete-category-button:hover {
+	transform: scale(1.05);
+}
+
+.trash-2-icon, .pencil-icon {
+	stroke-width: 2;
+}

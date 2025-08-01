@@ -1,0 +1,13 @@
+.start-container {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-logo {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+}

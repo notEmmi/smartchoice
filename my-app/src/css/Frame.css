@@ -1,0 +1,168 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  border: solid 10px var(--eggplant);
+  background-color: var(--seashell);
+  box-shadow: 10px 10px 0px var(--dark-eggplant);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.top-nav {
+  -webkit-app-region: drag; /* Make the bar draggable */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 5px;
+  width: 100%;
+  height: 60px; /* Fixed height instead of viewport-relative */
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0; /* Prevent nav from shrinking */
+}
+
+
+/* Tab layout - 4 sections */
+.tab1,
+.tab2,
+.tab3,
+.tab4 {
+  -webkit-app-region: drag;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Tab 1 - Logo/Home */
+.tab1 {
+  flex: 1;
+  background-color: var(--pistachio);
+  justify-content: center;
+  text-align: center;
+  padding-left: 20px;
+}
+
+/* Tab 2 - About */
+.tab2 {
+  flex: 1;
+  background-color: var(--pistachio);
+  justify-content: center;
+  text-align: center;
+  border-left: 2px solid var(--eggplant);
+  border-right: 2px solid var(--eggplant);
+}
+
+/* Tab 3 - Help */
+.tab3 {
+  flex: 1;
+  background-color: var(--pistachio);
+  justify-content: center;
+  text-align: center;
+  border-right: 2px solid var(--eggplant);
+}
+
+/* Active tab styling */
+.active-tab {
+  background-color: var(--bakermiller-pink) !important;
+}
+
+/* Tab 4 - Window Controls (smaller for even icon spacing) */
+.tab4 {
+  flex: 0.7;
+  background-color: var(--pistachio);
+  justify-content: space-evenly;
+}
+
+/* Tab styling */
+.nav-tab {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--eggplant);
+  user-select: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+
+.nav-tab:hover {
+  transform: scale(1.2);
+}
+
+.home-icon {
+  -webkit-app-region: no-drag;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--eggplant);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+
+.nav-logo {
+  height: 50px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-right: 10px;
+}
+
+.content {
+  display: flex;
+  margin: 50px;
+  min-height: calc(100% - 100px); /* Ensure content takes full available height minus margins */
+  box-sizing: border-box;
+}
+
+.home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px; /* space between logo and text */
+}
+
+.menu-icon, .close-icon, .minus-icon, .square-icon {
+  stroke-width: 3;
+  height: 32px;
+  width: 32px;
+}
+
+.square-icon {
+  height: 26px;
+  width: 26px;
+}
+
+.nav-icon {
+    -webkit-app-region: no-drag;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.1s, color 0.2s;
+}
+
+.nav-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--dark-eggplant);
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 60px - 20px); /* Full height minus fixed nav height (60px) minus border (20px) */
+  /* Custom scrollbar styles for Webkit browsers */
+  scrollbar-width: auto; /* Firefox */
+  scrollbar-color: var(--eggplant) var(--seashell); /* Firefox */
+}

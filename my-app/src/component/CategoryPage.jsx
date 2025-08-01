@@ -1,0 +1,180 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "../css/CategoryPage.css"
+import PlaceHolder from "../assets/placeholder.png";
+import AddImage from "../assets/add.png";
+import { Minus, ArrowLeft, Pencil, Trash2 } from 'lucide-react';
+
+const CategoriesSection = ({ categories }) => {
+	const [expandedCategories, setExpandedCategories] = useState(new Set());
+	const [editingCategories, setEditingCategories] = useState(new Set());
+	const navigate = useNavigate();
+
+	const toggleCategory = (categoryName, event) => {
+		// Prevent any potential event bubbling that might cause navigation
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		
+		setExpandedCategories(prev => {
+			const newSet = new Set(prev);
+			if (newSet.has(categoryName)) {
+				newSet.delete(categoryName);
+			} else {
+				newSet.add(categoryName);
+			}
+			return newSet;
+		});
+	};
+
+	const toggleEditMode = (categoryName, event) => {
+		if (event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		
+		setEditingCategories(prev => {
+			const newSet = new Set(prev);
+			if (newSet.has(categoryName)) {
+				newSet.delete(categoryName);
+			} else {
+				newSet.add(categoryName);
+			}
+			return newSet;
+		});
+	};
+
+	const isCategoryExpanded = (categoryName) => {
+		return expandedCategories.has(categoryName);
+	};
+
+	const isCategoryEditing = (categoryName) => {
+		return editingCategories.has(categoryName);
+	};
+	
+	return (
+		<div className="categories-section">
+			{/* Expanded categories displayed above the grid */}
+			{categories && categories.map((category, idx) => (
+				isCategoryExpanded(category.name) && (
+					<div key={`expanded-${idx}`} className="category-expanded">
+						<div className="category-expanded-header">
+							{isCategoryEditing(category.name) && (
+								<ArrowLeft 
+									className="category-back-icon" 
+									onClick={(e) => toggleEditMode(category.name, e)}
+									title="Go back"
+								/>
+							)}
+							<h2>{category.name}</h2>
+							<Minus 
+								className="category-minimize-icon" 
+								onClick={(e) => toggleCategory(category.name, e)}
+								title="Minimize category"
+							/>
+						</div>
+						<div className="category-expanded-content">
+							<div className="category-content-layout">
+								{/* Left side - Category image */}
+								<div className="category-image-section">
+									<img src={PlaceHolder || category.image} className="category-image-expanded" alt={`Category ${category.name}`} />
+									{isCategoryEditing(category.name) && (
+										<button className="change-image-button"><p>change image</p></button>
+									)}
+								</div>
+								
+								{/* Right side - Activities list */}
+								<div className="activities-section">
+									{category.options && category.options.map((option, idx) => (
+										<div key={idx} className='activity-item'>
+											<div className="activity-content">
+												<div className='activity-name'>
+													<h3>{option.label}</h3>
+												</div>
+												<div className="activity-moods">
+													{option.moods && option.moods.map((mood, moodIdx) => (
+														<span key={moodIdx} className="mood-tag">{mood}</span>
+													))}
+												</div>
+											</div>
+											<div className="activity-actions">
+												{isCategoryEditing(category.name) && (
+													<>
+														<button className="edit-activity-button">
+															<Pencil className='icon pencil-icon'/>
+														</button>
+														<button className="delete-activity-button">
+															<Trash2 className='icon trash-2-icon' />
+														</button>
+													</>
+												)}
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+							
+							{/* Bottom buttons */}
+							<div className="category-bottom-actions">
+								{!isCategoryEditing(category.name) && (
+									<button className="pick-from-category-button">
+										PICK FROM THIS CATEGORY
+									</button>
+								)}
+								<div style={{ flex: 1 }}></div> {/* Spacer */}
+								<div className="category-action-buttons">
+									{!isCategoryEditing(category.name) ? (
+										<button 
+											className="edit-category-button"
+											onClick={(e) => toggleEditMode(category.name, e)}
+										>
+											edit
+										</button>
+									) : (
+										<>
+											<button 
+												className="save-category-button"
+												onClick={(e) => toggleEditMode(category.name, e)}
+											>
+												SAVE
+											</button>
+											<button className="delete-category-button">DELETE</button>
+										</>
+									)}
+								</div>
+							</div>
+						</div>
+
+					</div>
+				)
+			))}
+			
+			{/* Categories grid */}
+			<div className="categories">
+				{categories && categories.map((category, idx) => (
+					!isCategoryExpanded(category.name) && (
+						<div key={idx} className="category-container">
+							<div
+								className="category"
+								onClick={(e) => toggleCategory(category.name, e)}
+							>
+								<img src={PlaceHolder} className="category-image" alt={`Category ${category.name}`} />
+								<p><strong>{category.name}</strong></p>
+							</div>
+						</div>
+					)
+				))}
+				<div
+					className="add-category"
+					onClick={() => navigate("/addcategory")}
+				>
+					<img src={AddImage} className="add-image" alt="add image" />
+					<p><strong>Add Category</strong></p>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default CategoriesSection;

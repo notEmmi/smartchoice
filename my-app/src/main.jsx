@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
   
   /* StrictMode is a tool for highlighting potential problems in an application. 
   It activates additional checks and warnings for its descendants. */
-  <div class="main-content">
+  <div className="main-content">
     <StrictMode>
       <App />
     </StrictMode>

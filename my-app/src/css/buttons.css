@@ -1,0 +1,100 @@
+button:hover {
+  cursor:pointer;
+  transform: scale(1.04);
+  color: var(--dark-eggplant);
+  font-family: 'Inter', sans-serif;
+
+}
+
+.start-button,
+.mood-button,
+.current-mood-button,
+.personalized-recc-button {
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
+  outline: none;
+}
+
+.start-button {
+  background: none;
+  color: var(--eggplant);
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+.mood-button, 
+.current-mood-button {
+  background-color: var(--pistachio);
+  color: var(--eggplant);
+  padding: 0.5em 1.5em;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-right: 0.8em;
+}
+
+.mood-button:last-child,
+.current-mood-button:last-child {
+  margin-bottom: 2px;
+}
+
+.current-mood-button {
+  background-color: var(--bakermiller-pink);
+}
+
+.personalized-recc-button {
+  background: var(--seashell);
+  color: var(--eggplant);
+  padding: 0.75em 2em;
+  font-size: 24px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  outline: 2px solid transparent;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.personalized-recc-button:focus,
+.personalized-recc-button:hover {
+  color: var(--dark-eggplant);
+}
+
+.mood-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mood-btn-text {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.heartplus-icon,
+.heartminus-icon {
+  height: 22px;
+  width: 22px;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+  margin-left: 10px;
+}

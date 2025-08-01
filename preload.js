@@ -1,26 +1,21 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const { contextBridge, ipcRenderer } = require('electron');
 
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional for security
-      nodeIntegration: true, // Enable Node.js features in renderer
-    },
-  });
+contextBridge.exposeInMainWorld('electronAPI', {
+  // window functtions
+  minimize: () => ipcRenderer.send('window-minimize'),
+  toggleMaximize: () => ipcRenderer.send('window:toggle-maximize'),
+  close: () => ipcRenderer.send('window-close'),
 
-  win.loadURL('http://localhost:5173'); // Change port if using Create React App
-}
 
-app.whenReady().then(() => {
-  createWindow();
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
+  // category functions
+  getCategories: () => ipcRenderer.invoke('get-categories'),
+  setCategories: (categories) => ipcRenderer.invoke('set-categories', categories),
+  getMoods: () => ipcRenderer.invoke('get-moods'),
+  setMoods: (moods) => ipcRenderer.invoke('set-moods', moods),
+  getSelectedMoods: () => ipcRenderer.invoke('get-selected-moods'),
+  setSelectedMoods: (selectedMoods) => ipcRenderer.invoke('set-selected-moods', selectedMoods),
+
+
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
-});
+
