@@ -1,5 +1,14 @@
 {
-  "selectedMoods": [],
+  "selectedMoods": [
+    "happy",
+    "sad",
+    "frustrated",
+    "anxious",
+    "bored",
+    "tired",
+    "excited",
+    "overwhelmed"
+  ],
   "categories": [
     {
       "name": "Productivity",
@@ -7,17 +16,24 @@
         {
           "label": "Declutter Your Desk",
           "weight": 1,
-          "moods": ["overwhelmed", "frustrated"]
+          "moods": [
+            "overwhelmed",
+            "frustrated"
+          ]
         },
         {
           "label": "Make a To-Do List",
           "weight": 1,
-          "moods": ["anxious"]
+          "moods": [
+            "anxious"
+          ]
         },
         {
           "label": "Organize One Folder",
           "weight": 1,
-          "moods": ["tired"]
+          "moods": [
+            "tired"
+          ]
         }
       ]
     },
@@ -27,57 +43,90 @@
         {
           "label": "Sketch or Doodle Freely",
           "weight": 1,
-          "moods": ["bored", "calm"]
+          "moods": [
+            "bored",
+            "calm"
+          ]
         },
         {
           "label": "Write a Journal Entry",
           "weight": 1,
-          "moods": ["sad", "lonely"]
+          "moods": [
+            "sad",
+            "lonely"
+          ]
         },
         {
           "label": "Try a New Recipe",
           "weight": 1,
-          "moods": ["excited", "happy"]
+          "moods": [
+            "excited",
+            "happy"
+          ]
         },
         {
           "label": "Take Photos of Everyday Objects",
           "weight": 1,
-          "moods": ["bored", "calm"]
+          "moods": [
+            "bored",
+            "calm"
+          ]
         },
         {
           "label": "Write a Short Story or Poem",
           "weight": 1,
-          "moods": ["calm", "lonely"]
+          "moods": [
+            "calm",
+            "lonely"
+          ]
         },
         {
           "label": "Create a Vision Board",
           "weight": 1,
-          "moods": ["excited", "happy"]
+          "moods": [
+            "excited",
+            "happy"
+          ]
         },
         {
           "label": "Learn a New Craft Technique",
           "weight": 1,
-          "moods": ["bored", "calm"]
+          "moods": [
+            "bored",
+            "calm"
+          ]
         },
         {
           "label": "Rearrange Your Room Decor",
           "weight": 1,
-          "moods": ["bored", "excited"]
+          "moods": [
+            "bored",
+            "excited"
+          ]
         },
         {
           "label": "Start a Creative Challenge",
           "weight": 1,
-          "moods": ["excited", "happy"]
+          "moods": [
+            "excited",
+            "happy"
+          ]
         },
         {
           "label": "Make Art with Found Materials",
           "weight": 1,
-          "moods": ["bored", "happy"]
+          "moods": [
+            "bored",
+            "happy"
+          ]
         },
         {
           "label": "Design Your Dream Space",
           "weight": 1,
-          "moods": ["calm", "excited"]
+          "moods": [
+            "calm",
+            "excited"
+          ]
         }
       ]
     },
@@ -87,17 +136,26 @@
         {
           "label": "Take a Warm Shower",
           "weight": 1,
-          "moods": ["tired", "anxious"]
+          "moods": [
+            "tired",
+            "anxious"
+          ]
         },
         {
           "label": "Listen to Music",
           "weight": 1,
-          "moods": ["sad", "calm"]
+          "moods": [
+            "sad",
+            "calm"
+          ]
         },
         {
           "label": "Do a Quick Stretch",
           "weight": 1,
-          "moods": ["frustrated", "overwhelmed"]
+          "moods": [
+            "frustrated",
+            "overwhelmed"
+          ]
         }
       ]
     },
@@ -107,12 +165,18 @@
         {
           "label": "Call or Text a Friend",
           "weight": 1,
-          "moods": ["lonely", "sad"]
+          "moods": [
+            "lonely",
+            "sad"
+          ]
         },
         {
           "label": "Send a Meme or Reel",
           "weight": 1,
-          "moods": ["happy", "excited"]
+          "moods": [
+            "happy",
+            "excited"
+          ]
         }
       ]
     },
@@ -122,12 +186,18 @@
         {
           "label": "5-Minute Breathing Exercise",
           "weight": 1,
-          "moods": ["anxious", "overwhelmed"]
+          "moods": [
+            "anxious",
+            "overwhelmed"
+          ]
         },
         {
           "label": "Sit by a Window & Observe",
           "weight": 1,
-          "moods": ["calm", "tired"]
+          "moods": [
+            "calm",
+            "tired"
+          ]
         }
       ]
     }
