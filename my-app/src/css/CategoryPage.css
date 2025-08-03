@@ -1,5 +1,4 @@
 
-
 .categories-section {
 	width: 100%;
 }
@@ -84,10 +83,6 @@
 	color: var(--dark-eggplant);
 }
 
-.category-expanded-header h3 {
-	margin: 0;
-	font-size: 24px;
-}
 
 .category-minimize-icon {
 	cursor: pointer;
@@ -193,7 +188,8 @@
 
 .activity-moods {
 	display: flex;
-	gap: 6px;
+	gap: 8px;
+	row-gap: unset;
 	flex-wrap: wrap;
 }
 
@@ -202,13 +198,13 @@
 	color: var(--eggplant);
 	padding: 2px 8px;
 	border-radius: 12px;
-	font-size: 12px;
-	font-weight: 600;
 }
 
 .activity-actions {
 	display: flex;
 	gap: 8px;
+	justify-content: center;
+	align-self: center;
 }
 
 .edit-activity-button,

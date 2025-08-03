@@ -94,7 +94,7 @@ const CategoriesSection = ({ categories }) => {
 												</div>
 												<div className="activity-moods">
 													{option.moods && option.moods.map((mood, moodIdx) => (
-														<span key={moodIdx} className="mood-tag">{mood}</span>
+														<p className="mood-tag">{mood}</p>
 													))}
 												</div>
 											</div>

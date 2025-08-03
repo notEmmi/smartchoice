@@ -7,7 +7,9 @@
     "bored",
     "tired",
     "excited",
-    "overwhelmed"
+    "overwhelmed",
+    "calm",
+    "lonely"
   ],
   "categories": [
     {
@@ -17,8 +19,16 @@
           "label": "Declutter Your Desk",
           "weight": 1,
           "moods": [
+            "happy",
+            "sad",
+            "frustrated",
+            "anxious",
+            "bored",
+            "tired",
+            "excited",
             "overwhelmed",
-            "frustrated"
+            "lonely",
+            "calm"
           ]
         },
         {
