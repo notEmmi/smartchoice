@@ -1,0 +1,161 @@
+/* Confirmation Dialog Styles */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.confirmation-dialog {
+  background: var(--seashell);
+  border: 2px solid var(--eggplant);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.confirmation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--pistachio);
+  border-bottom: 1px solid var(--eggplant);
+}
+
+.confirmation-title {
+  margin: 0;
+  color: var(--eggplant);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.confirmation-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--eggplant);
+  transition: background-color 0.2s;
+}
+
+.confirmation-close:hover {
+  background: var(--tea-rose-red);
+}
+
+.close-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.confirmation-body {
+  padding: 20px;
+}
+
+.confirmation-message {
+  margin: 0;
+  color: var(--eggplant);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--misty-rose);
+  border-top: 1px solid var(--eggplant);
+  justify-content: flex-end;
+}
+
+.confirmation-cancel,
+.confirmation-confirm {
+  padding: 10px 20px;
+  border: 1px solid var(--eggplant);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.confirmation-cancel {
+  background: var(--seashell);
+  color: var(--eggplant);
+}
+
+.confirmation-cancel:hover {
+  background: var(--misty-rose);
+  transform: translateY(-1px);
+}
+
+.confirmation-confirm {
+  background: var(--pistachio);
+  color: var(--eggplant);
+}
+
+.confirmation-confirm:hover {
+  background: var(--tea-rose-red);
+  transform: translateY(-1px);
+}
+
+/* Different types of confirmation dialogs */
+.confirmation-confirm.danger {
+  background: var(--bakermiller-pink);
+  color: var(--eggplant);
+}
+
+.confirmation-confirm.danger:hover {
+  background: var(--dark-eggplant);
+  color: var(--seashell);
+}
+
+.confirmation-confirm.warning {
+  background: #ffd93d;
+  color: var(--eggplant);
+}
+
+.confirmation-confirm.warning:hover {
+  background: #ffcd00;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .confirmation-dialog {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .confirmation-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .confirmation-cancel,
+  .confirmation-confirm {
+    width: 100%;
+  }
+}
