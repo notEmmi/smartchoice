@@ -24,6 +24,28 @@ const App = () => {
     }
   }, [currentMoods, isLoading]);
 
+  // Save categories when they change 
+  const updateCategories = async (newCategories) => {
+    try {
+      await window.electronAPI.setCategories(newCategories);
+      setCategories(newCategories);
+    } catch (error) {
+      console.error("Failed to save categories:", error);
+    }
+  };
+
+  // Save moods when they change
+  const updateMoods = async (newMoods) => {
+    try {
+      await window.electronAPI.setMoods(newMoods);
+      setMoods(newMoods);
+    } catch (error) {
+      console.error("Failed to save moods:", error);
+    }
+  };
+
+
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -61,6 +83,8 @@ const App = () => {
                   moods={moods} 
                   currentMoods={currentMoods}
                   setCurrentMoods={setCurrentMoods}
+                  updateCategories={updateCategories}
+                  updateMoods={updateMoods}
                 />
               )
             } />

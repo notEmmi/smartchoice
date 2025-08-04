@@ -3,19 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import "../css/CategoryPage.css"
 import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
-import { Minus, ArrowLeft, Pencil, Trash2 } from 'lucide-react';
+import { Minus, ArrowLeft, Pencil, Trash2, Plus, X } from 'lucide-react';
 
-const CategoriesSection = ({ categories }) => {
+const CategoriesSection = ({ categories, moods, updateCategories, updateMoods }) => {
 	const [expandedCategories, setExpandedCategories] = useState(new Set());
 	const [editingCategories, setEditingCategories] = useState(new Set());
 	const navigate = useNavigate();
+    
+	const preventEventBubbling = (event) => {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    };
 
 	const toggleCategory = (categoryName, event) => {
-		// Prevent any potential event bubbling that might cause navigation
-		if (event) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
+		preventEventBubbling(event);
 		
 		setExpandedCategories(prev => {
 			const newSet = new Set(prev);
@@ -29,10 +32,7 @@ const CategoriesSection = ({ categories }) => {
 	};
 
 	const toggleEditMode = (categoryName, event) => {
-		if (event) {
-			event.preventDefault();
-			event.stopPropagation();
-		}
+		preventEventBubbling(event);
 		
 		setEditingCategories(prev => {
 			const newSet = new Set(prev);
@@ -45,6 +45,16 @@ const CategoriesSection = ({ categories }) => {
 		});
 	};
 
+	const toggleActivityEdit = ( categoryName, activityIndex, event) => {
+		preventEventBubbling(event);
+
+		if (editingActivity && editingActivity.categortName === categoryName && editingActivity.activityIndex === activityIndex) {
+			setEditingActivity(null); //stop editing
+		} else {
+			setEditingActivity({ categoryName, activityIndex}); // start editing this activity
+		}
+	};
+
 	const isCategoryExpanded = (categoryName) => {
 		return expandedCategories.has(categoryName);
 	};
@@ -53,6 +63,57 @@ const CategoriesSection = ({ categories }) => {
 		return editingCategories.has(categoryName);
 	};
 	
+	const addMoodToActivity = (categoryName, activityIndex, event) => {
+		preventEventBubbling(event);
+		
+		const newMood = prompt("Enter new mood:");
+		if (newMood && newMood.trim()) {
+			const trimmedMood = newMood.trim();
+			
+			// Update categories with the new mood
+			const updatedCategories = categories.map(category => {
+				if (category.name === categoryName) {
+					const updatedOptions = category.options.map((option, idx) => {
+						if (idx === activityIndex) {
+							return {
+								...option,
+								moods: [...(option.moods || []), trimmedMood]
+							};
+						}
+						return option;
+					});
+					return { ...category, options: updatedOptions };
+				}
+				return category;
+			});
+			updateCategories(updatedCategories);
+			
+			// Add mood to global moods array if it doesn't exist
+			if (moods && !moods.includes(trimmedMood)) {
+				const updatedMoods = [...moods, trimmedMood];
+				updateMoods(updatedMoods);
+			}
+		}
+	}
+
+	const removeMoodFromActivity = (categoryName, activityIndex, moodIndex, event) => {
+		preventEventBubbling(event);
+		
+		const updatedCategories = categories.map(category => {
+			if (category.name === categoryName) {
+				const updatedOptions = category.options.map((option, idx) => {
+					if (idx === activityIndex) {
+						const updatedMoods = option.moods.filter((_, mIdx) => mIdx !== moodIndex);
+						return { ...option, moods: updatedMoods };
+					}
+					return option;
+				});
+				return { ...category, options: updatedOptions };
+			}
+			return category;
+		});
+		updateCategories(updatedCategories);
+	}
 	return (
 		<div className="categories-section">
 			{/* Expanded categories displayed above the grid */}
@@ -94,16 +155,35 @@ const CategoriesSection = ({ categories }) => {
 												</div>
 												<div className="activity-moods">
 													{option.moods && option.moods.map((mood, moodIdx) => (
-														<p className="mood-tag">{mood}</p>
+														<div key={moodIdx} className="mood-item">
+															<p className="mood-tag">{mood}</p>
+															{isCategoryEditing(category.name) && (
+																<button 
+																	className="remove-mood-button"
+																	onClick={(e) => removeMoodFromActivity(category.name, idx, moodIdx, e)}
+																	title="Remove mood"
+																>
+																	<X className="remove-mood-icon" />
+																</button>
+															)}
+														</div>
 													))}
+													{isCategoryEditing(category.name) && (
+														<button 
+															className="add-mood-button"
+															onClick={(e) => addMoodToActivity(category.name, idx, e)}
+															title="Add mood"
+														>
+															<Plus className="add-mood-icon" />
+															<span>Add Mood</span>
+														</button>
+													)}
 												</div>
 											</div>
 											<div className="activity-actions">
 												{isCategoryEditing(category.name) && (
 													<>
-														<button className="edit-activity-button">
-															<Pencil className='icon pencil-icon'/>
-														</button>
+
 														<button className="delete-activity-button">
 															<Trash2 className='icon trash-2-icon' />
 														</button>

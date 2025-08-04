@@ -191,13 +191,68 @@
 	gap: 8px;
 	row-gap: unset;
 	flex-wrap: wrap;
+	align-items: center;
+}
+
+.mood-item {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	background-color: var(--pistachio);
+	border-radius: 12px;
+	padding: 2px 8px;
 }
 
 .mood-tag {
-	background-color: var(--pistachio);
 	color: var(--eggplant);
-	padding: 2px 8px;
+	margin: 0;
+	font-size: 12px;
+}
+
+.remove-mood-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 2px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--eggplant);
+	transition: color 0.2s;
+}
+
+.remove-mood-button:hover {
+	color: var(--dark-eggplant);
+}
+
+.remove-mood-icon {
+	width: 12px;
+	height: 12px;
+}
+
+.add-mood-button {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	background: var(--tea-rose-red);
+	color: var(--eggplant);
+	border: none;
 	border-radius: 12px;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 12px;
+	transition: background-color 0.2s;
+}
+
+.add-mood-button:hover {
+	background: var(--dark-eggplant);
+	color: var(--misty-rose);
+}
+
+.add-mood-icon {
+	width: 14px;
+	height: 14px;
 }
 
 .activity-actions {
