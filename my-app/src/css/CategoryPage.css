@@ -180,16 +180,9 @@
 	gap: 8px;
 }
 
-.activity-name {
-	color: var(--eggplant);
-	font-weight: 600;
-	font-size: 16px;
-}
-
 .activity-moods {
 	display: flex;
 	gap: 8px;
-	row-gap: unset;
 	flex-wrap: wrap;
 	align-items: center;
 }
@@ -206,7 +199,6 @@
 .mood-tag {
 	color: var(--eggplant);
 	margin: 0;
-	font-size: 12px;
 }
 
 .remove-mood-button {
