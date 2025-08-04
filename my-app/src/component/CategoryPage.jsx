@@ -114,6 +114,28 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 		});
 		updateCategories(updatedCategories);
 	}
+
+	const deleteActivity = (categoryName, activityIndex, event) => {
+		preventEventBubbling(event);
+		
+		const updatedCategories = categories.map(category => {
+			if (category.name === categoryName) {
+				const updatedOptions = category.options.filter((_, idx) => idx !== activityIndex);
+				return { ...category, options: updatedOptions };
+			}
+			return category;
+		});
+		updateCategories(updatedCategories);
+	}
+
+	const deleteCategory = (categoryIndex, event) => {
+		preventEventBubbling(event);
+
+		const updatedCategories = categories.filter((_, idx) => idx !== categoryIndex);
+
+		updateCategories(updatedCategories);
+	}
+
 	return (
 		<div className="categories-section">
 			{/* Expanded categories displayed above the grid */}
@@ -147,8 +169,8 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 								
 								{/* Right side - Activities list */}
 								<div className="activities-section">
-									{category.options && category.options.map((option, idx) => (
-										<div key={idx} className='activity-item'>
+									{category.options && category.options.map((option, activityIdx) => (
+										<div key={activityIdx} className='activity-item'>
 											<div className="activity-content">
 												<div className='activity-name'>
 													<h3>{option.label}</h3>
@@ -160,7 +182,7 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 															{isCategoryEditing(category.name) && (
 																<button 
 																	className="remove-mood-button"
-																	onClick={(e) => removeMoodFromActivity(category.name, idx, moodIdx, e)}
+																	onClick={(e) => removeMoodFromActivity(category.name, activityIdx, moodIdx, e)}
 																	title="Remove mood"
 																>
 																	<X className="remove-mood-icon" />
@@ -171,7 +193,7 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 													{isCategoryEditing(category.name) && (
 														<button 
 															className="add-mood-button"
-															onClick={(e) => addMoodToActivity(category.name, idx, e)}
+															onClick={(e) => addMoodToActivity(category.name, activityIdx, e)}
 															title="Add mood"
 														>
 															<Plus className="add-mood-icon" />
@@ -182,12 +204,13 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 											</div>
 											<div className="activity-actions">
 												{isCategoryEditing(category.name) && (
-													<>
-
-														<button className="delete-activity-button">
-															<Trash2 className='icon trash-2-icon' />
-														</button>
-													</>
+													<button 
+														className="delete-activity-button"
+														onClick={(e) => deleteActivity(category.name, activityIdx, e)}
+														title="Delete activity"
+													>
+														<Trash2 className='icon trash-2-icon' />
+													</button>
 												)}
 											</div>
 										</div>
@@ -219,7 +242,12 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 											>
 												SAVE
 											</button>
-											<button className="delete-category-button">DELETE</button>
+											<button 
+												className="delete-category-button"
+												onClick={ (e) => deleteCategory( idx,e)}
+											>
+												DELETE
+											</button>
 										</>
 									)}
 								</div>
