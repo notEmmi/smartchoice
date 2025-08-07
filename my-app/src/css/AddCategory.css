@@ -6,7 +6,7 @@
 }
 
 .add-category-header {
-    background-color: var(--pistachio);
+    background-color: var(--bakermiller-pink);
     padding: 2%;
     display: flex;
     justify-content: space-between;
@@ -15,16 +15,16 @@
     position: relative;
 }
 
-.add-category-header h2 {
+/* .add-category-header h2 {
     color: var(--eggplant);
     margin: 0;
     font-size: 24px;
     font-weight: bold;
-}
+} */
 
 .add-category-content {
     padding: 2%;
-    background-color: var(--tea-rose-red);
+    background-color: var(--pistachio);
     text-align: left;
     border-radius: 0 0 8px 8px;
 }
