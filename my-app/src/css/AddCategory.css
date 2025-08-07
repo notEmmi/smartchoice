@@ -47,13 +47,6 @@
     width: 100%;
 }
 
-.tagline {
-    text-align: center;
-    color: var(--eggplant);
-    margin-bottom: 20px;
-    font-style: italic;
-    font-size: 16px;
-}
 
 /* Two Column Layout */
 .add-category-layout {
