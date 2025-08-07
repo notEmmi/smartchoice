@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import "../css/CategoryPage.css"
 import PlaceHolder from "../assets/placeholder.png";
 import AddImage from "../assets/add.png";
-import { Minus, ArrowLeft, Pencil, Trash2, Plus, X } from 'lucide-react';
+import AddCategory from "./AddCategory"
+import { Minus, ArrowLeft, Trash2, Plus, X } from 'lucide-react';
 
 const CategoriesSection = ({ categories, moods, updateCategories, updateMoods }) => {
 	const [expandedCategories, setExpandedCategories] = useState(new Set());
 	const [editingCategories, setEditingCategories] = useState(new Set());
+	const [isAddingCategory, setIsAddingCategory] = useState(false);
 	const navigate = useNavigate();
     
 	const preventEventBubbling = (event) => {
@@ -136,6 +138,11 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 		updateCategories(updatedCategories);
 	}
 
+	const toggleAddCategory = (event) => {
+		preventEventBubbling(event);
+		setIsAddingCategory(!isAddingCategory);
+	}
+
 	return (
 		<div className="categories-section">
 			{/* Expanded categories displayed above the grid */}
@@ -257,6 +264,26 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 					</div>
 				)
 			))}
+
+			{isAddingCategory && (
+				<div className='add-category-expanded'>
+					<div className='add-category-header'>
+						<h2>ADD CATEGORY</h2>
+						<Minus 
+							className="category-minimize-icon" 
+							onClick={(e) => toggleAddCategory(e)}
+							title="Close add category"
+						/>
+					</div>
+					<div className='add-category-content'>
+						<AddCategory 
+							categories={categories} 
+							updateCategories={updateCategories}
+							onClose={() => setIsAddingCategory(false)}
+						/>
+					</div>
+				</div>
+			)}
 			
 			{/* Categories grid */}
 			<div className="categories">
@@ -273,13 +300,15 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 						</div>
 					)
 				))}
-				<div
-					className="add-category"
-					onClick={() => navigate("/addcategory")}
-				>
-					<img src={AddImage} className="add-image" alt="add image" />
-					<p><strong>Add Category</strong></p>
-				</div>
+				{!isAddingCategory && (
+					<div
+						className="add-category"
+						onClick={(e) => toggleAddCategory(e)}
+					>
+						<img src={AddImage} className="add-image" alt="add image" />
+						<p><strong>Add Category</strong></p>
+					</div>
+				)}
 			</div>
 		</div>
 	);
