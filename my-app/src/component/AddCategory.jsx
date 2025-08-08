@@ -107,7 +107,7 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 								</div>
 								<input
 									type="text"
-									placeholder="Type...."
+									placeholder="Type Activity Name..."
 									value={activity.name}
 									onChange={e => handleActivityChange(idx, 'name', e.target.value)}
 									className="activity-name-input"

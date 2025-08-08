@@ -6,7 +6,7 @@
 }
 
 .add-category-header {
-    background-color: var(--bakermiller-pink);
+    background-color: var(--pistachio);
     padding: 2%;
     display: flex;
     justify-content: space-between;
@@ -24,9 +24,11 @@
 
 .add-category-content {
     padding: 2%;
-    background-color: var(--pistachio);
+    background-color: var(--misty-rose);
     text-align: left;
     border-radius: 0 0 8px 8px;
+    border: 1px solid var(--pistachio);
+    border-top: none;
 }
 
 .category-minimize-icon {
@@ -100,7 +102,7 @@
 .category-image-placeholder {
     width: 300px;
     height: 300px;
-    background: var(--misty-rose);
+    background: var(--tea-rose-red);
     border: 2px solid var(--eggplant);
     border-radius: 8px;
     display: flex;
@@ -130,7 +132,7 @@
 /* Right Side - Activities */
 .add-category-right {
     flex: 1;
-    background-color: var(--misty-rose);
+    background-color: var(--tea-rose-red);
     border-radius: 8px;
     padding: 20px;
     max-height: 400px;
@@ -148,7 +150,7 @@
 }
 
 .activity-form-item {
-    background: var(--seashell);
+    background: var(--misty-rose);
     padding: 16px;
     border-radius: 8px;
     border: 1px solid var(--eggplant);
@@ -160,12 +162,11 @@
 }
 
 .activity-name-input {
-    width: 100%;
+    width: 80%;
     padding: 8px 12px;
     border: 1px solid var(--eggplant);
     border-radius: 20px;
     background: var(--seashell);
-    color: var(--eggplant);
     font-size: 14px;
     margin-bottom: 12px;
     outline: none;
