@@ -138,10 +138,7 @@
 }
 
 .activities-header h3 {
-    color: var(--eggplant);
     margin: 0 0 16px 0;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 .activities-list {
@@ -157,10 +154,8 @@
     border: 1px solid var(--eggplant);
 }
 
-.activity-header h4 {
-    color: var(--eggplant);
+.activity-header p{
     margin: 0 0 8px 0;
-    font-size: 16px;
     font-weight: bold;
 }
 

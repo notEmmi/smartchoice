@@ -103,7 +103,7 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 						{activities.map((activity, idx) => (
 							<div key={idx} className="activity-form-item">
 								<div className="activity-header">
-									<h4>Activity {idx + 1}</h4>
+									<p>Acivity {idx + 1}</p>
 								</div>
 								<input
 									type="text"
