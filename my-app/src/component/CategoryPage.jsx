@@ -176,11 +176,14 @@ const CategoriesSection = ({ categories, moods, updateCategories, updateMoods })
 								
 								{/* Right side - Activities list */}
 								<div className="activities-section">
+									<div className="category-activities-header">
+										<h3>Activities</h3>
+									</div>
 									{category.options && category.options.map((option, activityIdx) => (
 										<div key={activityIdx} className='activity-item'>
 											<div className="activity-content">
 												<div className='activity-name'>
-													<h3>{option.label}</h3>
+													<h4>{option.label}</h4>
 												</div>
 												<div className="activity-moods">
 													{option.moods && option.moods.map((mood, moodIdx) => (

@@ -72,15 +72,14 @@
 }
 
 .category-name-label {
-    font-weight: bold;
-    color: var(--eggplant);
-    font-size: 16px;
+    text-align: left;
+    margin: 0;
 }
 
 .category-name-input {
     padding: 12px 16px;
     border: 1px solid var(--eggplant);
-    border-radius: 25px;
+    border-radius: 8px;
     background: var(--seashell);
     color: var(--eggplant);
     font-size: 16px;
@@ -135,18 +134,23 @@
     background-color: var(--tea-rose-red);
     border-radius: 8px;
     padding: 20px;
-    max-height: 400px;
+    max-height: 435px;
     overflow-y: auto;
 }
 
+.activities-header {
+    margin-bottom: 8px;
+}
+
 .activities-header h3 {
-    margin: 0 0 16px 0;
+    margin: 0;
+    text-align: left;
 }
 
 .activities-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .activity-form-item {
@@ -156,20 +160,20 @@
     border: 1px solid var(--eggplant);
 }
 
-.activity-header p{
+.activity-header h4 {
     margin: 0 0 8px 0;
-    font-weight: bold;
+
 }
 
 .activity-name-input {
-    width: 80%;
-    padding: 8px 12px;
+    padding: 12px 16px;
     border: 1px solid var(--eggplant);
-    border-radius: 20px;
+    border-radius: 28px;
     background: var(--seashell);
-    font-size: 14px;
-    margin-bottom: 12px;
+    font-size: 16px;
     outline: none;
+    margin: 0 0 8px 0;
+
 }
 
 .activity-name-input:focus {
@@ -187,20 +191,33 @@
 .mood-tag-input {
     display: flex;
     align-items: center;
-    gap: 4px;
-    background-color: var(--pistachio);
+    padding: 8px 12px;
+    border: 1px solid var(--eggplant);
     border-radius: 20px;
-    padding: 4px 12px;
+    background: var(--seashell);
+    gap: 4px;
+    position: relative;
+}
+
+.mood-tag-input:focus-within {
+    border-color: var(--pistachio);
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.2);
 }
 
 .mood-input {
     border: none;
     background: transparent;
     color: var(--eggplant);
-    font-size: 12px;
-    padding: 2px 4px;
+    font-size: 14px;
     outline: none;
-    min-width: 60px;
+    min-width: 80px;
+    padding: 0;
+    flex: 1;
+}
+
+.mood-input:focus {
+    border: none;
+    box-shadow: none;
 }
 
 .mood-input::placeholder {
@@ -219,10 +236,13 @@
     justify-content: center;
     color: var(--eggplant);
     transition: color 0.2s;
+    opacity: 0.6;
+    flex-shrink: 0;
 }
 
 .remove-mood-button:hover {
     color: #ff4757;
+    opacity: 1;
 }
 
 .add-mood-button {

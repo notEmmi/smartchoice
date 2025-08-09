@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../css/AddCategory.css';
 import { X } from 'lucide-react';
+import PlaceHolder from "../assets/placeholder.png";
+
 
 const AddCategory = ({ categories, updateCategories, onClose }) => {
 	const [category, setCategory] = useState('');
@@ -74,7 +76,8 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 				{/* Left side - Category name and image */}
 				<div className="add-category-left">
 					<div className="category-name-section">
-						<label htmlFor="categoryName" className="category-name-label">Category Name</label>
+						<h4 className="category-name-label">Category</h4>
+						{/* <label htmlFor="categoryName" className="category-name-label">Category Name</label> */}
 						<input
 							id="categoryName"
 							type="text"
@@ -84,13 +87,12 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 							className="category-name-input"
 						/>
 					</div>
-					
 					<div className="category-image-section">
-						<div className="category-image-placeholder">
-							<span>DEFAULT IMAGE</span>
-						</div>
+						<img src={PlaceHolder} className="category-image-expanded" alt={`add category image`}/>
 						<button type="button" className="upload-image-button">Upload Image</button>
+
 					</div>
+					
 				</div>
 
 				{/* Right side - Activities */}
@@ -98,12 +100,11 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 					<div className="activities-header">
 						<h3>Activities</h3>
 					</div>
-					
 					<div className="activities-list">
 						{activities.map((activity, idx) => (
 							<div key={idx} className="activity-form-item">
 								<div className="activity-header">
-									<p>Acivity {idx + 1}</p>
+									<h4>Activity {idx + 1}</h4>
 								</div>
 								<input
 									type="text"
