@@ -18,10 +18,10 @@ Decision paralysis is real, especially when you're feeling off. SmartChoice take
 
 **Resources & Dependencies Used**
 
-  * React – UI framework for fast and modern components
+  * React
   
-  * Electron + Vite – For building and running the desktop app
+  * Electron + Vite
   
-  * Figma (Design File) – UI/UX design & prototyping
+  * Figma (Design File)
   
-  * Lucide Icons – Clean, customizable icons for the interface
+  * Lucide Icons
