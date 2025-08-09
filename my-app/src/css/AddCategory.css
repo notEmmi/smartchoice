@@ -1,32 +1,303 @@
-.add-cat-form,
-.add-cat-form-top,
-.add-cat-form-content {
-	/* No longer needed, handled by .form-container, .form-top, .form-content */
-	display: none;
+/* Add Category Expanded Styles - Matching Figma Design */
+.add-category-expanded {
+    text-align: center;
+    margin-bottom: 48px;
+    width: 100%;
 }
-.form-row {
+
+.add-category-header {
+    background-color: var(--pistachio);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* .add-category-header h2 {
+    color: var(--eggplant);
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+} */
+
+.add-category-content {
+    padding: 2%;
+    background-color: var(--misty-rose);
+    text-align: left;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--pistachio);
+    border-top: none;
+}
+
+.category-minimize-icon {
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    stroke-width: 3;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.category-minimize-icon:hover {
+    transform: scale(1.1);
+    color: var(--dark-eggplant);
+}
+
+/* Add Category Form Container */
+.add-category-form-container {
+    width: 100%;
+}
+
+
+/* Two Column Layout */
+.add-category-layout {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Left Side - Category Name and Image */
+.add-category-left {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category-name-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-name-label {
+    text-align: left;
+    margin: 0;
+}
+
+.category-name-input {
+    padding: 12px 16px;
+    border: 1px solid var(--eggplant);
+    border-radius: 8px;
+    background: var(--seashell);
+    color: var(--eggplant);
+    font-size: 16px;
+    outline: none;
+}
+
+.category-name-input:focus {
+    border-color: var(--pistachio);
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.2);
+}
+
+.category-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.category-image-placeholder {
+    width: 300px;
+    height: 300px;
+    background: var(--tea-rose-red);
+    border: 2px solid var(--eggplant);
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--eggplant);
 }
-.form-label {
-    width: 150px;
+
+.upload-image-button {
+    background: var(--seashell);
+    color: var(--eggplant);
+    border: 1px solid var(--eggplant);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upload-image-button:hover {
+    background: var(--pistachio);
+}
+
+/* Right Side - Activities */
+.add-category-right {
+    flex: 1;
+    background-color: var(--tea-rose-red);
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 435px;
+    overflow-y: auto;
+}
+
+.activities-header {
+    margin-bottom: 8px;
+}
+
+.activities-header h3 {
+    margin: 0;
     text-align: left;
 }
-.form-input {
-    flex: 1;
-    margin-left: 1rem;
+
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-.activity-row.form-row .form-input {
-    margin-left: 0.5rem;
+
+.activity-form-item {
+    background: var(--misty-rose);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--eggplant);
 }
-.moods-row {
+
+.activity-header h4 {
+    margin: 0 0 8px 0;
+
+}
+
+.activity-name-input {
+    padding: 12px 16px;
+    border: 1px solid var(--eggplant);
+    border-radius: 28px;
+    background: var(--seashell);
+    font-size: 16px;
+    outline: none;
+    margin: 0 0 8px 0;
+
+}
+
+.activity-name-input:focus {
+    border-color: var(--pistachio);
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.2);
+}
+
+.activity-moods {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    gap: 8px;
+    align-items: center;
 }
-.moods-row .form-input {
-    width: 120px;
-    margin-left: 0;
+
+.mood-tag-input {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--eggplant);
+    border-radius: 20px;
+    background: var(--seashell);
+    gap: 4px;
+    position: relative;
+}
+
+.mood-tag-input:focus-within {
+    border-color: var(--pistachio);
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.2);
+}
+
+.mood-input {
+    border: none;
+    background: transparent;
+    color: var(--eggplant);
+    font-size: 14px;
+    outline: none;
+    min-width: 80px;
+    padding: 0;
+    flex: 1;
+}
+
+.mood-input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.mood-input::placeholder {
+    color: var(--eggplant);
+    opacity: 0.7;
+}
+
+.remove-mood-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--eggplant);
+    transition: color 0.2s;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.remove-mood-button:hover {
+    color: #ff4757;
+    opacity: 1;
+}
+
+.add-mood-button {
+    background: var(--pistachio);
+    color: var(--eggplant);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-mood-button:hover {
+    background: #26d0ce;
+    color: white;
+}
+
+.add-activity-button {
+    background: var(--seashell);
+    color: var(--eggplant);
+    border: 1px solid var(--eggplant);
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    align-self: center;
+}
+
+.add-activity-button:hover {
+    background: var(--pistachio);
+}
+
+/* Bottom Actions */
+.add-category-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.add-button {
+    background: var(--seashell);
+    color: var(--eggplant);
+    border: 1px solid var(--eggplant);
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-button:hover {
+    background: var(--pistachio);
 }

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import '../css/AddCategory.css';
-import FormContainer from './FormContainer';
+import { X } from 'lucide-react';
+import PlaceHolder from "../assets/placeholder.png";
 
 
-const AddCategory = ({ categories, setCategories }) => {
+const AddCategory = ({ categories, updateCategories, onClose }) => {
 	const [category, setCategory] = useState('');
 	const [activities, setActivities] = useState([
 		{ name: '', moods: [''] },
 		{ name: '', moods: [''] }
 	]);
-	
-	const [categoryMood, setCategoryMood] = useState('');
 
 	const handleActivityChange = (index, field, value) => {
 		const newActivities = [...activities];
@@ -50,97 +49,116 @@ const AddCategory = ({ categories, setCategories }) => {
 			category.trim() &&
 			activities.some(act => act.name.trim())
 		) {
-			setCategories([
-				...categories,
-				{
-					name: category.trim(),
-					activities: activities
-						.filter(act => act.name.trim())
-						.map(act => ({
-							name: act.name.trim(),
-							moods: act.moods.map(m => m.trim()).filter(Boolean)
-						})),
-					mood: categoryMood.trim()
-				}
-			]);
+			const newCategory = {
+				name: category.trim(),
+				options: activities
+					.filter(act => act.name.trim())
+					.map(act => ({
+						label: act.name.trim(),
+						moods: act.moods.map(m => m.trim()).filter(Boolean)
+					}))
+			};
+			updateCategories([...categories, newCategory]);
 			setCategory('');
 			setActivities([
 				{ name: '', moods: [''] },
 				{ name: '', moods: [''] }
 			]);
-			setCategoryMood('');
+			if (onClose) onClose();
 		}
 	};
 
 	return (
-		<div className='addCat-container'>
-			<h1>Add Category</h1>
-			<p className='tagline'>Organize your world—add a category, set the mood, and fill it with activities!</p>
-			<FormContainer>
-				<form onSubmit={handleSubmit}>
-					<div className="form-group form-row">
-						<label htmlFor="categoryName" className="form-label">Category Name</label>
+		<div className='add-category-form-container'>
+			<p className='tagline'>Add a category, fill it with activities, and set the mood!</p>
+			
+			<div className="add-category-layout">
+				{/* Left side - Category name and image */}
+				<div className="add-category-left">
+					<div className="category-name-section">
+						<h4 className="category-name-label">Category</h4>
+						{/* <label htmlFor="categoryName" className="category-name-label">Category Name</label> */}
 						<input
 							id="categoryName"
 							type="text"
 							value={category}
 							onChange={e => setCategory(e.target.value)}
-							placeholder="Enter category name"
-							className="form-input"
+							placeholder="Type Category Name ..."
+							className="category-name-input"
 						/>
 					</div>
-					<div className="form-group form-row">
-						<label htmlFor="categoryMood" className="form-label">Category Mood (optional)</label>
-						<input
-							id="categoryMood"
-							type="text"
-							value={categoryMood}
-							onChange={e => setCategoryMood(e.target.value)}
-							placeholder="Enter category mood"
-							className="form-input"
-						/>
+					<div className="category-image-section">
+						<img src={PlaceHolder} className="category-image-expanded" alt={`add category image`}/>
+						<button type="button" className="upload-image-button">Upload Image</button>
+
 					</div>
-					<div className="activities-section">
-						<label className="form-label">Activities</label>
+					
+				</div>
+
+				{/* Right side - Activities */}
+				<div className="add-category-right">
+					<div className="activities-header">
+						<h3>Activities</h3>
+					</div>
+					<div className="activities-list">
 						{activities.map((activity, idx) => (
-							<div key={idx} className="activity-row form-row" style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-								<div style={{display: 'flex', width: '100%'}}>
-									<input
-										type="text"
-										placeholder={`Activity ${idx + 1} name`}
-										value={activity.name}
-										onChange={e => handleActivityChange(idx, 'name', e.target.value)}
-										className="form-input"
-										style={{marginLeft: 0}}
-									/>
+							<div key={idx} className="activity-form-item">
+								<div className="activity-header">
+									<h4>Activity {idx + 1}</h4>
 								</div>
-								<div className="moods-row" style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.5rem'}}>
+								<input
+									type="text"
+									placeholder="Type Activity Name..."
+									value={activity.name}
+									onChange={e => handleActivityChange(idx, 'name', e.target.value)}
+									className="activity-name-input"
+								/>
+								<div className="activity-moods">
 									{activity.moods.map((mood, mIdx) => (
-										<div key={mIdx} style={{display: 'flex', alignItems: 'center'}}>
+										<div key={mIdx} className="mood-tag-input">
 											<input
 												type="text"
-												placeholder="Mood"
+												placeholder="mood"
 												value={mood}
 												onChange={e => handleMoodChange(idx, mIdx, e.target.value)}
-												className="form-input"
-												style={{width: '120px', marginLeft: 0}}
+												className="mood-input"
 											/>
 											{activity.moods.length > 1 && (
-												<button type="button" onClick={() => handleRemoveMood(idx, mIdx)} style={{marginLeft: '0.25rem'}}>–</button>
+												<button 
+													type="button" 
+													onClick={() => handleRemoveMood(idx, mIdx)}
+													className="remove-mood-button"
+												>
+													<X size={12} />
+												</button>
 											)}
 										</div>
 									))}
-									<button type="button" onClick={() => handleAddMood(idx)} style={{marginLeft: '0.5rem'}}>+ Mood</button>
+									<button 
+										type="button" 
+										onClick={() => handleAddMood(idx)}
+										className="add-mood-button"
+									>
+										+ Mood
+									</button>
 								</div>
 							</div>
 						))}
-						<button type="button" onClick={handleAddActivity} className="add-activity-btn">
+						
+						<button 
+							type="button" 
+							onClick={handleAddActivity} 
+							className="add-activity-button"
+						>
 							Add Activity
 						</button>
 					</div>
-					<button type="submit" className="submit-btn">Add Category</button>
-				</form>
-			</FormContainer>
+				</div>
+			</div>
+			
+			<div className="add-category-actions">
+				<button onClick={handleSubmit} className="add-button">add</button>
+			</div>
 		</div>
 	);
 };

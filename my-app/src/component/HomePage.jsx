@@ -31,7 +31,7 @@ function recommendActivities(categories, selectedMoods) {
   return results.sort((a, b) => b.score - a.score);
 }
 
-const Home = ({ categories, moods, currentMoods, setCurrentMoods }) => {
+const Home = ({ categories, moods, currentMoods, setCurrentMoods, updateCategories, updateMoods }) => {
 
 
 	// Handler to add mood if not already selected
@@ -61,7 +61,12 @@ const Home = ({ categories, moods, currentMoods, setCurrentMoods }) => {
 				onRemove={handleRemoveMood}
 				onRecommendations={handleReccomendations}
 			/>
-			<CategoriesSection categories={categories} />
+			<CategoriesSection 
+				categories={categories} 
+				moods={moods}
+				updateCategories={updateCategories}
+				updateMoods={updateMoods}
+			/>
 		</div>
 	)
 };
