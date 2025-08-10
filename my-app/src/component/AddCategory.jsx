@@ -113,6 +113,7 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 									onChange={e => handleActivityChange(idx, 'name', e.target.value)}
 									className="activity-name-input"
 								/>
+								<h4>Moods</h4>
 								<div className="activity-moods">
 									{activity.moods.map((mood, mIdx) => (
 										<div key={mIdx} className="mood-tag-input">

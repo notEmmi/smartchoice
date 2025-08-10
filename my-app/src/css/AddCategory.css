@@ -144,13 +144,14 @@
 
 .activities-header h3 {
     margin: 0;
+    margin-bottom: 8px;
     text-align: left;
 }
 
 .activities-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .activity-form-item {
@@ -162,18 +163,18 @@
 
 .activity-header h4 {
     margin: 0 0 8px 0;
-
 }
 
 .activity-name-input {
-    padding: 12px 16px;
+    padding: 8px;
     border: 1px solid var(--eggplant);
-    border-radius: 28px;
+    border-radius: 25px;
     background: var(--seashell);
     font-size: 16px;
     outline: none;
     margin: 0 0 8px 0;
-
+    max-width: 80%;
+    min-width: 50%;
 }
 
 .activity-name-input:focus {
@@ -191,11 +192,12 @@
 .mood-tag-input {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: 8px;
     border: 1px solid var(--eggplant);
-    border-radius: 20px;
+    border-radius: 25px;
     background: var(--seashell);
     gap: 4px;
+    max-width: 50%;
     position: relative;
 }
 
@@ -230,7 +232,6 @@
     border: none;
     cursor: pointer;
     padding: 2px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -241,7 +242,7 @@
 }
 
 .remove-mood-button:hover {
-    color: #ff4757;
+    color: var(--bakermiller-pink);
     opacity: 1;
 }
 
@@ -249,17 +250,15 @@
     background: var(--pistachio);
     color: var(--eggplant);
     border: none;
-    border-radius: 20px;
-    padding: 6px 12px;
+    border-radius: 25px;
+    padding: 8px 20px;
     cursor: pointer;
-    font-size: 12px;
     font-weight: bold;
     transition: background-color 0.2s;
 }
 
 .add-mood-button:hover {
-    background: #26d0ce;
-    color: white;
+    background: var(--bakermiller-pink);
 }
 
 .add-activity-button {
