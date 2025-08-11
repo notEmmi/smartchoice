@@ -1,16 +1,5 @@
 {
-  "selectedMoods": [
-    "happy",
-    "sad",
-    "frustrated",
-    "anxious",
-    "bored",
-    "tired",
-    "excited",
-    "overwhelmed",
-    "calm",
-    "lonely"
-  ],
+  "selectedMoods": [],
   "categories": [
     {
       "name": "Productivity",
