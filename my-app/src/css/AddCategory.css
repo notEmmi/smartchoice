@@ -138,11 +138,6 @@
     overflow-y: auto;
 }
 
-.activities-header h3 {
-    margin: 0;
-    margin-bottom: 8px;
-    text-align: left;
-}
 
 .activities-list {
     display: flex;
@@ -154,28 +149,45 @@
     background: var(--misty-rose);
     padding: 16px;
     border-radius: 8px;
-    border: 1px solid var(--eggplant);
 }
 
-.activity-header h4 {
-    margin: 0 0 8px 0;
+.activity-header {
+    margin: 0 0  8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.activity-header > :first-child {
+    flex: 1;
+    text-align: left;
+}
+
+.activity-header > :last-child {
+    flex: 0 0 auto;
+    text-align: right;
 }
 
 .activity-name-input {
-    padding: 8px;
+    padding: 12px 16px;
     border: 1px solid var(--eggplant);
-    border-radius: 25px;
+    border-radius: 8px;
     background: var(--seashell);
+    color: var(--eggplant);
     font-size: 16px;
     outline: none;
-    margin: 0 0 8px 0;
     max-width: 80%;
     min-width: 50%;
+    margin: 0 0 16px 0;
 }
 
 .activity-name-input:focus {
     border-color: var(--pistachio);
     box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.2);
+}
+
+.activity-moods-header {
+    margin: 0 0  8px 0;
 }
 
 .activity-moods {
@@ -186,14 +198,14 @@
 }
 
 .mood-tag-input {
-    display: flex;
-    align-items: center;
-    padding: 8px;
+    padding: 12px 16px;
     border: 1px solid var(--eggplant);
-    border-radius: 25px;
+    border-radius: 8px;
     background: var(--seashell);
-    gap: 4px;
-    max-width: 50%;
+    color: var(--eggplant);
+    font-size: 16px;
+    outline: none;
+    max-width: 25%;
     position: relative;
 }
 

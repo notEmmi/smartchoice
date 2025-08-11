@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css/AddCategory.css';
-import { X } from 'lucide-react';
+import { Trash2, X } from 'lucide-react';
 import PlaceHolder from "../assets/placeholder.png";
 
 
@@ -103,6 +103,7 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 							<div key={idx} className="activity-form-item">
 								<div className="activity-header">
 									<h3>Activity {idx + 1}</h3>
+									<Trash2 className='icon trash-2-icon' />
 								</div>
 								<input
 									type="text"
@@ -111,7 +112,7 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 									onChange={e => handleActivityChange(idx, 'name', e.target.value)}
 									className="activity-name-input"
 								/>
-								<h4>Moods</h4>
+								<h3 className='activity-moods-header'>Moods</h3>
 								<div className="activity-moods">
 									{activity.moods.map((mood, mIdx) => (
 										<div key={mIdx} className="mood-tag-input">
