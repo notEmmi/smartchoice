@@ -97,14 +97,12 @@ const AddCategory = ({ categories, updateCategories, onClose }) => {
 
 				{/* Right side - Activities */}
 				<div className="add-category-right">
-					<div className="activities-header">
-						<h3>Activities</h3>
-					</div>
+
 					<div className="activities-list">
 						{activities.map((activity, idx) => (
 							<div key={idx} className="activity-form-item">
 								<div className="activity-header">
-									<h4>Activity {idx + 1}</h4>
+									<h3>Activity {idx + 1}</h3>
 								</div>
 								<input
 									type="text"
