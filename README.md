@@ -1,9 +1,5 @@
 SmartChoice is a mood-driven activity picker designed to help you make decisions when you feel overwhelmed, unmotivated, or simply indecisive. It suggests personalized actions based on your current mood to help you feel better, get things done, or just unwind.
 
-**What is it?**
-
-SmartChoice is a lightweight desktop app built with Electron + React that offers activity recommendations based on how you're feeling. Whether you're anxious, curious, or tired, SmartChoice gives you something helpful or enjoyable to do instantly.
-
 
 **What problem does it solve?**
 
